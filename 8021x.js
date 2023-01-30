@@ -9,17 +9,27 @@ $(document).ready(function () {
         
     });
 
-    $(".passwd_24g_show").click(function () { 
-        var pass_type = $("#passwd_24g").attr("type");
+    $(".auth_key_show").click(function () { 
+        var pass_type = $("#auth_key").attr("type");
         if(pass_type == "password"){
-            $("#passwd_24g").attr("type","text");
-            $('.passwd_24g_show').removeClass('fa-eye-slash').addClass('fa-eye');
+            $("#auth_key").attr("type","text");
+            $('.auth_key_show').removeClass('fa-eye-slash').addClass('fa-eye');
         }else{
-            $("#passwd_24g").attr("type","password");
-            $('.passwd_24g_show').removeClass('fa-eye').addClass('fa-eye-slash');
+            $("#auth_key").attr("type","password");
+            $('.auth_key_show').removeClass('fa-eye').addClass('fa-eye-slash');
         }
     });
 
+    $(".count_key_show").click(function () { 
+        var pass_type = $("#count_key").attr("type");
+        if(pass_type == "password"){
+            $("#count_key").attr("type","text");
+            $('.count_key_show').removeClass('fa-eye-slash').addClass('fa-eye');
+        }else{
+            $("#count_key").attr("type","password");
+            $('.count_key_show').removeClass('fa-eye').addClass('fa-eye-slash');
+        }
+    });
     $("#saveConfig").click(function (){
         if (!format_volide_ok()) {
             return;

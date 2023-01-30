@@ -1369,6 +1369,15 @@ var util_gw_array80 = "(UTC+13:00)努库阿洛法";
 
 /**8021x.html */
 var authentication_8021x = "802.1X认证";
+var radius_auth_server = "*Radius 认证服务器";
+var radius_auth_port = "*Radius 认证端口";
+var radius_auth_key = "*Radius 认证密钥"
+var auth_default_port = "默认端口8012";
+
+var radius_count_server = "Radius 计费服务器";
+var radius_count_port = "Radius 计费端口";
+var radius_count_key = "Radius 计费密钥"
+var count_default_port = "默认端口8013";
 
 var vlan_group="SD-WAN";
 

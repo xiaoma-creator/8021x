@@ -1323,6 +1323,15 @@ var util_gw_array80 = "(UTC+13:00)Nukualofa";
 
 /**8021x.html */
 var authentication_8021x = "802.1X Authentication";
+var radius_auth_server = "*Radius authentication server";
+var radius_auth_port = "*Radius authentication port";
+var radius_auth_key = "*Radius authentication key";
+var auth_default_port = "Default port 8012";
+
+var radius_count_server = "Radius counting server";
+var radius_count_port = "Radius counting port";
+var radius_count_key = "Radius counting key";
+var count_default_port = "Default port 8013";
 
 var vlan_group = "SD-WAN";
 

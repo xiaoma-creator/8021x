@@ -17,7 +17,11 @@
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<% getUciLanguage('lang');%>"></script>
 <script type="text/javascript" src="/js/common.js"></script>
-
+<style>
+    .mrg-btm30px{
+        margin-bottom: 30px;
+    }
+</style>
 <body module="8021x" id="mbox_container">
     <div id="theme-wrapper">
         <!-- header start -->
@@ -52,137 +56,74 @@
                     <div class="col-lg-12">
                         <div class="main-box clearfix">
                             <div class="main-box-header gray-bg">
-                                <h2 sh_lang="guest_network"></h2>
+                                <h2 sh_lang="authentication_8021x"></h2>
                             </div>
 
                             <div class="main-box-body">
-                                <div class="row list">
+                                <!-- authentication server ip -->
+                                <div class="row list mrg-btm30px"  style="margin-top: 30px;">
                                     <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                        <span sh_lang="guest_switch"></span>
+                                        <span sh_lang="radius_auth_server"></span>
                                     </div>
                                     <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                        <select class="form-control" id="enable">
-                                            <option value="0" sh_lang="global_status_disabled"></option>
-                                            <option value="1" sh_lang="global_status_enabled"></option>
-                                        </select>
-                                        <p></p>
+                                        <input class="form-control require isIP" type="text" id="auth_server">
                                     </div>
                                 </div>
-                                <div id="guest_details" class="hidden">
-                                    <!-- <div class="main-box">
-                                        <div class="main-box-header">
-                                            <h2 sh_lang="wireless_24g"></h2>    
-                                        </div> -->
-                                        <div class="main-box-body">
-                                            <!-- 2.4g -->
-                                            <div class="row list">
-                                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                                    <span sh_lang="name_or_ssid"></span>
-                                                </div>
-                                                <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                                    <input class="form-control require notip isSSID" type="text" id="ssid_24g" maxlength="30">
-                                                    <p></p>
-                                                </div>
-                                            </div>
-                                            <div class="row list">
-                                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                                    <span sh_lang="wlsec_encryption"></span>
-                                                </div>
-                                                <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                                    <select class="form-control" onchange="changeencrypt(this)" id="encrypt_24g">
-                                                        <option value="1" sh_lang="wpa3_sae">WPA3-SAE</option>
-                                                        <option value="2" sh_lang="wpa2_psk__wpa3_sae">WPA2-PSK/WPA3-SAE</option>
-                                                        <option value="3" sh_lang="wpa2_psk">WPA2-PSK</option>
-                                                        <option value="4" sh_lang="wpa__wpa2_psk" selected>WPA/WPA2-PSK</option>
-                                                        <option value="5" sh_lang="wpa_psk">WPA-PSK</option>
-                                                        <option value="0" sh_lang="close_txt">Close</option>
-                                                    </select>
-                                                    <p></p>
-                                                </div>
-                                            </div>
-                                            <div class="row list">
-                                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                                    <span sh_lang="global_password"></span>
-                                                </div>
-                                                <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                                    <input type="password" class="form-control require notip isSSIDPwd" id="passwd_24g" maxlength="63">
-                                                    <p></p>
-                                                </div>
-                                                <div class="col-lg-17 col-sm-1 col-xs-1 form_right">
-                                                    <i class="passwd_24g_show fa fa-eye-slash" style="margin-left:2%"></i>
-                                                </div>
-                                            </div>
-                                            <div class="row list">
-                                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                                    <span sh_lang="guest_open_time"></span>
-                                                </div>
-                                                <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                                    <select class="form-control" id="guest_open_time">
-                                                        <option value="1" sh_lang="one_day" selected></option>
-                                                        <option value="3" sh_lang="three_day"></option>
-                                                        <option value="0" sh_lang="forever"></option>
-                                                    </select>
-                                                    <p></p>
-                                                </div>
-                                            </div>
-                                            <div class="row list">
-                                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                                    <span sh_lang="lan_isolate"></span>
-                                                </div>
-                                                <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                                    <input type="checkbox" id="lan_isolate" checked><span sh_lang="lan_isolate_tip"></span>
-                                                    <p></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- 5g -->
-                                        <!-- <div class="main-box"> -->
-                                            <!-- <div class="main-box-header">
-                                                <h2 sh_lang="wireless_58g"></h2>    
-                                            </div>
-                                            <div class="main-box-body">
-                                                <div class="row list">
-                                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                                        <span sh_lang="name_or_ssid"></span>
-                                                    </div>
-                                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                                        <input class="form-control require notip isSSID" type="text" id="ssid_58g" maxlength="30">
-                                                        <p></p>
-                                                    </div>
-                                                </div>
-                                                <div class="row list">
-                                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                                        <span sh_lang="wlsec_encryption"></span>
-                                                    </div>
-                                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                                        <select class="form-control" onchange="changeencrypt(this)" id="encrypt_58g">
-                                                            <option value="1" sh_lang="wpa3_sae">WPA3-SAE</option>
-                                                            <option value="2" sh_lang="wpa2_psk__wpa3_sae">WPA2-PSK/WPA3-SAE</option>
-                                                            <option value="3" sh_lang="wpa2_psk">WPA2-PSK</option>
-                                                            <option value="4" sh_lang="wpa__wpa2_psk">WPA/WPA2-PSK</option>
-                                                            <option value="5" sh_lang="wpa_psk">WPA-PSK</option>
-                                                            <option value="0" sh_lang="close_txt">Close</option>
-                                                        </select>
-                                                        <p></p>
-                                                    </div>
-                                                </div>
-                                                <div class="row list">
-                                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                                        <span sh_lang="global_password"></span>
-                                                    </div>
-                                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                                        <input type="password" class="form-control require notip isSSIDPwd" id="passwd_58g" maxlength="63">
-                                                        <p></p>
-                                                    </div>
-                                                    <div class="col-lg-17 col-sm-1 col-xs-1 form_right">
-                                                        <i class="passwd_58g_show fa fa-eye-slash" style="margin-left:2%"></i>
-                                                    </div>
-                                                </div>
-    
-                                            </div> -->
-                                        <!-- </div> -->
-                                    <!-- </div> -->
+                                <!--authentication server port -->
+                                <div class="row list">
+                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                        <span sh_lang="radius_auth_port"></span>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                        <input class="form-control require isPorts" type="text" id="auth_port">
+                                        <p sh_lang="auth_default_port"></p>
+                                    </div>
                                 </div>
+                                <!-- authentication server key -->
+                                <div class="row list mrg-btm30px">
+                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                        <span sh_lang="radius_auth_key"></span>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                        <input type="password" class="form-control require isNONULL" id="auth_key" maxlength="64">
+                                    </div>
+                                    <div class="col-lg-17 col-sm-1 col-xs-1 form_right">
+                                        <i class="auth_key_show fa fa-eye-slash" style="margin-left:2%"></i>
+                                    </div>
+                                </div>
+
+                                <!-- counting server ip -->
+                                <div class="row list mrg-btm30px">
+                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                        <span sh_lang="radius_count_server"></span>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                        <input class="form-control require isNULL isIP" type="text" id="count_server">
+                                    </div>
+                                </div>
+                                <!--counting server port -->
+                                <div class="row list">
+                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                        <span sh_lang="radius_count_port"></span>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                        <input class="form-control require isNULL isPorts" type="text" id="count_port">
+                                        <p sh_lang="count_default_port"></p>
+                                    </div>
+                                </div>
+                                <!-- counting server key -->
+                                <div class="row list mrg-btm30px">
+                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                        <span sh_lang="radius_count_key"></span>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                        <input type="password" class="form-control require isNULL" id="count_key" maxlength="64">
+                                    </div>
+                                    <div class="col-lg-17 col-sm-1 col-xs-1 form_right">
+                                        <i class="count_key_show fa fa-eye-slash" style="margin-left:2%"></i>
+                                    </div>
+                                </div>
+
                                 <div class="row list">
                                     <div class="col-md-4 col-xs-8  col-xs-offset-2">
                                         <div class="row text-center">
@@ -196,10 +137,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div id="footer-bar" style="opacity: 1;">
-                        <p id="footer-copyright" class="col-xs-12" sh_lang="copyright"></p>
+                    <div class="row">
+                        <div id="footer-bar" style="opacity: 1;">
+                            <p id="footer-copyright" class="col-xs-12" sh_lang="copyright"></p>
+                        </div>
                     </div>
                 </div>
             </div>
