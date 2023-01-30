@@ -1,0 +1,358 @@
+[
+  {
+    "name": "status_state",
+    "icon": "fonts-index",
+    "urls": "/index.html",
+    "childs": ""
+  },
+  {
+    "name": "index_setup_wizard",
+    "icon": "fa-random",
+    "urls": "/mode.html",
+    "urltag": "mode",
+    "childs": ""
+  },
+  {
+    "name": "index_network_settings",
+    "icon": "fonts-network",
+    "urls": "network",
+    "childs": [
+      {
+        "name": "local_network_set",
+        "urls": "/localnet.html",
+        "childs": "",
+        "keyword":"network"
+      },
+      {
+        "name": "internet_network_set",
+        "urls": "/internet.html",
+        "childs": "",
+        "keyword":"network"
+      },
+      {
+        "name": "mobile_set",
+        "urls": "/mobile_setting.html",
+        "childs": "",
+        "keyword":"network"
+      },
+      {
+        "name": "intelligent_switch",
+        "urls": "/intelligent_switch.html",
+        "childs": "",
+        "keyword":"network"
+      },
+      {
+        "name": "server_set",
+        "urls": "/server_set.html",
+        "childs": "",
+        "keyword":"network"
+      },
+      {
+        "name": "ddns_set",
+        "urls": "/ddns.html",
+        "childs": "",
+        "keyword":"network"
+      },
+      {
+        "name": "route_static_tbl",
+        "urls": "/static_route.html",
+        "childs": "",
+        "keyword":"network"
+      },
+      {
+        "name": "route_table",
+        "urls": "/route.html",
+        "childs": "",
+        "keyword":"network"
+      },
+      {
+        "name": "dhcp_client",
+        "urls": "/dhcp_client.html",
+        "childs": "",
+        "keyword": "network"
+      },
+      {
+        "name": "mac_clone",
+        "urls":"/mac_clone.html",
+        "childs":"",
+        "keyword":"network"
+      },
+      {
+        "name": "load_balanced",
+        "urls": "/load_balanced.html",
+        "childs": "",
+        "keyword":"network"
+	  },
+	  {
+		"name": "snmp_management",
+		"urls": "/snmp.html",
+		"childs": "",
+		"keyword":"network"
+	  }
+    ]
+  },
+  {
+    "name": "ipv6_set",
+    "icon": "fonts-network",
+    "urls": "ipv6_set",
+    "childs": [
+      {
+        "name": "ipv6_lan_set",
+        "urls": "/ipv6_lan_set.html",
+        "childs": "",
+        "keyword":"ipv6_set"
+      },
+      {
+        "name": "ipv6_wan_set",
+        "urls": "/ipv6_wan_set.html",
+        "childs": "",
+        "keyword":"ipv6_set"
+      }
+    ]
+  },
+  {
+    "name": "vlan",
+    "icon": "fa-navicon",
+    "urls": "/vlan.html",
+    "childs": ""
+  },
+  {
+    "name": "message_switch",
+    "icon": "fa-comment",
+    "urls": "/short_message_setting.html",
+    "childs": ""
+  },
+  {
+    "name": "message",
+    "icon": "fa fa-envelope",
+    "urls": "/message.html",
+    "childs": ""
+  },
+  {
+    "name": "netmanager_switch",
+    "icon": "fa-sitemap",
+    "urls": "/netmanager_setting.html",
+    "childs": ""
+  },
+  {"name": "wireless_network_set",
+    "icon": "fa-rss",
+    "urls": "wireless",
+    "childs":[
+        {
+            "name": "wireless_network_set",
+            "urls": "/wireless.html",
+            "childs":"",
+            "keyword":"wireless"
+        },
+        {
+            "name": "authentication_8021x",
+            "urls": "/8021x.html",
+            "childs":"",
+            "keyword":"wireless"
+        },        
+        {
+            "name": "mesh_set",
+            "urls": "/wifi_mesh.html",
+            "childs":"",
+            "keyword":"wireless"
+        },
+        {
+            "name": "guest_network",
+            "urls": "/guest_network.html",
+            "childs": "",
+            "keyword":"wireless"
+        },
+        {
+            "name": "ads_User_management",
+            "urls": "/users_real.html",
+            "childs": "",
+            "keyword":"wireless"
+        },
+        {
+            "name": "wps_setting",
+            "urls": "/wps.html",
+            "childs": "",
+            "keyword":"wireless"
+        }
+    ]
+  },
+  {
+    "name": "vpn_header",
+    "icon": "fa-arrows-h",
+    "urls": "vpn",
+    "childs": [
+      {
+        "name": "vpn_IPsec_header",
+        "urls": "/vpn_setting.html",
+        "childs": "",
+        "keyword":"vpn"
+      },
+	   {
+        "name": "vpn_IPsec_status_header",
+        "urls": "/vpn_list.html",
+        "childs": "",
+        "keyword":"vpn"
+      },
+	  {
+		"name": "index_setup_pptp",
+		"urls": "/pptp_setting.html",
+		"childs": "",
+		"keyword": "vpn"
+	  },
+	  {
+		"name": "index_setup_l2tp",
+		"urls": "/l2tp_setting.html",
+		"childs": "",
+		"keyword": "vpn"
+	  },
+	  {
+		"name": "index_setup_gre",
+		"urls": "/gre_setting.html",
+		"childs": "",
+		"keyword": "vpn"
+	  },
+	  {
+		"name": "index_setup_eoip",
+		"urls": "/eoip_setting.html",
+		"childs": "",
+		"keyword": "vpn"
+	  }
+    ]
+  },
+  {
+    "name": "online_list",
+    "icon": "fa-user",
+    "urls": "/user_list.html",
+    "childs": ""
+  },
+  {
+    "name": "ads_firewall",
+    "icon": "fonts-firewall",
+    "urls": "firewall",
+    "childs": [
+      {
+        "name": "parental_control",
+        "urls": "/parental_control.html",
+        "childs": "",
+        "keyword":"firewall"
+      },
+      {
+        "name": "index_fwall_ip_filter",
+        "urls": "/ipfilter.html",
+        "childs": "",
+        "keyword":"firewall"
+      },
+      {
+        "name": "ads_wlmac",
+        "urls": "/macfilter.html",
+        "childs": "",
+        "keyword":"firewall"
+      },
+      {
+        "name": "urlfilter_header",
+        "urls": "/urlfilter.html",
+        "childs": "",
+        "keyword":"firewall"
+      },
+      {
+        "name": "portfw_header",
+        "urls": "/portforward.html",
+        "childs": "",
+        "keyword":"firewall"
+      },
+      {
+        "name": "dmz_set",
+        "urls": "/dmz.html",
+        "childs": "",
+        "keyword":"firewall"
+      },
+      {
+        "name": "nat",
+        "urls": "/nat.html",
+        "childs": "",
+        "keyword":"firewall"
+      }
+    ]
+  },
+  {
+    "name": "usb_application",
+    "icon": "fa-share-alt",
+    "urls": "usb",
+    "childs": [
+      {
+        "name": "usb_setting",
+        "urls": "/usbset.html",
+        "childs": "",
+        "keyword":"usb"
+      },
+	  {
+        "name": "usbset_file_teble",
+        "urls": "/samba_server.html",
+        "childs": "",
+        "keyword":"usb"
+      }
+    ]
+  },
+  {
+    "name": "System_Tools",
+    "icon": "fonts-tools",
+    "urls": "tools",
+    "childs": [
+      {
+        "name": "usr_set",
+        "urls": "/setting_account.html",
+        "childs": "",
+        "keyword":"tools"
+      },
+      {
+        "name": "ntp_header",
+        "urls": "/setting_time.html",
+        "childs": "",
+        "keyword":"tools"
+      },
+      {
+        "name": "language_sel",
+        "urls": "/language.html",
+        "childs": "",
+        "keyword":"tools"
+      },
+      {
+        "name": "index_system_upgrade",
+        "urls": "/system_upgrade.html",
+        "childs": "",
+        "keyword":"tools"
+      },
+      {
+        "name": "index_system_backup",
+        "urls": "/setting_save.html",
+        "childs": "",
+        "keyword":"tools"
+      },
+      {
+        "name": "index_system_reboot",
+        "urls": "/reboot.html",
+        "childs": "",
+        "keyword":"tools"
+      },
+      {
+        "name": "usr_log",
+        "urls": "/log.html",
+        "childs": "",
+        "keyword":"tools"
+      },
+      {
+        "name": "network_diagnosis",
+        "urls": "/ping_test.html",
+        "childs": "",
+        "keyword":"tools"
+      },
+      {
+		"name": "index_flow_statistics",
+        "urls": "/flow_statistics.html",
+        "childs": "",
+        "keyword":"tools"
+      }
+     
+    ]
+  }
+]
