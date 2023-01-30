@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8" />
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Cache" content="no-cache">
+<title>802.1x Authentication</title>
+<link type="image/x-icon" href="/images/favicon.ico" rel="shortcut icon" />
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/fonts/allfonts.css" />
+<link rel="stylesheet" type="text/css" href="/css/theme.css" />
+<link rel="stylesheet" type="text/css" href="/css/font-awesome-4.7.0/css/font-awesome.css" />
+<script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<% getUciLanguage('lang');%>"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+
+<body module="8021x" id="mbox_container">
+    <div id="theme-wrapper">
+        <!-- header start -->
+        <div class="navbar" id="header-navbar">
+            <div class="container-fluid">
+                <span id="logo" class="navbar-brand"></span>
+                <div class="clearfix">
+                    <button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse"
+                        type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="fa fa-bars"></span>
+                    </button>
+                    <div class="nav-no-collapse pull-right" id="header-nav">
+                        <!-- add by common.js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header end -->
+        <div id="page-wrapper" class="container-fluid">
+            <div id="nav-col">
+                <div id="col-left" class="col-left-nano">
+                    <div id="col-left-inner" class="col-left-nano-content">
+                        <div class="collapse navbar-collapse navbar-ex1-collapse" id="sidebar-nav">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content-wrapper">
+                <div class="row">
+                    <!--left content start-->
+                    <div class="col-lg-12">
+                        <div class="main-box clearfix">
+                            <div class="main-box-header gray-bg">
+                                <h2 sh_lang="guest_network"></h2>
+                            </div>
+
+                            <div class="main-box-body">
+                                <div class="row list">
+                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                        <span sh_lang="guest_switch"></span>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                        <select class="form-control" id="enable">
+                                            <option value="0" sh_lang="global_status_disabled"></option>
+                                            <option value="1" sh_lang="global_status_enabled"></option>
+                                        </select>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div id="guest_details" class="hidden">
+                                    <!-- <div class="main-box">
+                                        <div class="main-box-header">
+                                            <h2 sh_lang="wireless_24g"></h2>    
+                                        </div> -->
+                                        <div class="main-box-body">
+                                            <!-- 2.4g -->
+                                            <div class="row list">
+                                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                                    <span sh_lang="name_or_ssid"></span>
+                                                </div>
+                                                <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                                    <input class="form-control require notip isSSID" type="text" id="ssid_24g" maxlength="30">
+                                                    <p></p>
+                                                </div>
+                                            </div>
+                                            <div class="row list">
+                                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                                    <span sh_lang="wlsec_encryption"></span>
+                                                </div>
+                                                <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                                    <select class="form-control" onchange="changeencrypt(this)" id="encrypt_24g">
+                                                        <option value="1" sh_lang="wpa3_sae">WPA3-SAE</option>
+                                                        <option value="2" sh_lang="wpa2_psk__wpa3_sae">WPA2-PSK/WPA3-SAE</option>
+                                                        <option value="3" sh_lang="wpa2_psk">WPA2-PSK</option>
+                                                        <option value="4" sh_lang="wpa__wpa2_psk" selected>WPA/WPA2-PSK</option>
+                                                        <option value="5" sh_lang="wpa_psk">WPA-PSK</option>
+                                                        <option value="0" sh_lang="close_txt">Close</option>
+                                                    </select>
+                                                    <p></p>
+                                                </div>
+                                            </div>
+                                            <div class="row list">
+                                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                                    <span sh_lang="global_password"></span>
+                                                </div>
+                                                <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                                    <input type="password" class="form-control require notip isSSIDPwd" id="passwd_24g" maxlength="63">
+                                                    <p></p>
+                                                </div>
+                                                <div class="col-lg-17 col-sm-1 col-xs-1 form_right">
+                                                    <i class="passwd_24g_show fa fa-eye-slash" style="margin-left:2%"></i>
+                                                </div>
+                                            </div>
+                                            <div class="row list">
+                                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                                    <span sh_lang="guest_open_time"></span>
+                                                </div>
+                                                <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                                    <select class="form-control" id="guest_open_time">
+                                                        <option value="1" sh_lang="one_day" selected></option>
+                                                        <option value="3" sh_lang="three_day"></option>
+                                                        <option value="0" sh_lang="forever"></option>
+                                                    </select>
+                                                    <p></p>
+                                                </div>
+                                            </div>
+                                            <div class="row list">
+                                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                                    <span sh_lang="lan_isolate"></span>
+                                                </div>
+                                                <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                                    <input type="checkbox" id="lan_isolate" checked><span sh_lang="lan_isolate_tip"></span>
+                                                    <p></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 5g -->
+                                        <!-- <div class="main-box"> -->
+                                            <!-- <div class="main-box-header">
+                                                <h2 sh_lang="wireless_58g"></h2>    
+                                            </div>
+                                            <div class="main-box-body">
+                                                <div class="row list">
+                                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                                        <span sh_lang="name_or_ssid"></span>
+                                                    </div>
+                                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                                        <input class="form-control require notip isSSID" type="text" id="ssid_58g" maxlength="30">
+                                                        <p></p>
+                                                    </div>
+                                                </div>
+                                                <div class="row list">
+                                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                                        <span sh_lang="wlsec_encryption"></span>
+                                                    </div>
+                                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                                        <select class="form-control" onchange="changeencrypt(this)" id="encrypt_58g">
+                                                            <option value="1" sh_lang="wpa3_sae">WPA3-SAE</option>
+                                                            <option value="2" sh_lang="wpa2_psk__wpa3_sae">WPA2-PSK/WPA3-SAE</option>
+                                                            <option value="3" sh_lang="wpa2_psk">WPA2-PSK</option>
+                                                            <option value="4" sh_lang="wpa__wpa2_psk">WPA/WPA2-PSK</option>
+                                                            <option value="5" sh_lang="wpa_psk">WPA-PSK</option>
+                                                            <option value="0" sh_lang="close_txt">Close</option>
+                                                        </select>
+                                                        <p></p>
+                                                    </div>
+                                                </div>
+                                                <div class="row list">
+                                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                                        <span sh_lang="global_password"></span>
+                                                    </div>
+                                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                                        <input type="password" class="form-control require notip isSSIDPwd" id="passwd_58g" maxlength="63">
+                                                        <p></p>
+                                                    </div>
+                                                    <div class="col-lg-17 col-sm-1 col-xs-1 form_right">
+                                                        <i class="passwd_58g_show fa fa-eye-slash" style="margin-left:2%"></i>
+                                                    </div>
+                                                </div>
+    
+                                            </div> -->
+                                        <!-- </div> -->
+                                    <!-- </div> -->
+                                </div>
+                                <div class="row list">
+                                    <div class="col-md-4 col-xs-8  col-xs-offset-2">
+                                        <div class="row text-center">
+                                            <button type="button" id="saveConfig" class="btn btn-warning mrg-b-lg col-lg-2 col-md-3 col-xs-5 col-lg-offset-2 col-md-offset-1"
+                                                sh_lang="global_setting"></button>
+                                            <button type="button" id="resetConfig" sh_lang="global_resetting"
+                                                class="btn btn-default mrg-b-lg col-lg-2 col-md-3 col-xs-5 col-lg-offset-4 col-md-offset-2 col-xs-offset-2"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="footer-bar" style="opacity: 1;">
+                        <p id="footer-copyright" class="col-xs-12" sh_lang="copyright"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/8021x.js"></script>
+</body>
+
+</html>
