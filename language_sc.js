@@ -1367,6 +1367,9 @@ var util_gw_array78 = "(UTC+12:00)彼得罗巴甫洛夫斯克-勘察加";
 var util_gw_array79 = "(UTC+12:00)斐济,马绍尔群岛";
 var util_gw_array80 = "(UTC+13:00)努库阿洛法";
 
+/**8021x.html */
+var authentication_8021x = "802.1X认证";
+
 var vlan_group="SD-WAN";
 
 $(document).ready(function (){

@@ -1321,8 +1321,10 @@ var util_gw_array78 = "(UTC+12:00)Pietro Pavlov & Kamchatka";
 var util_gw_array79 = "(UTC+12:00)Fiji, Marshall";
 var util_gw_array80 = "(UTC+13:00)Nukualofa";
 
-var vlan_group = "SD-WAN";
+/**8021x.html */
+var authentication_8021x = "802.1X Authentication";
 
+var vlan_group = "SD-WAN";
 
 $(document).ready(function (){
     replacetext();
