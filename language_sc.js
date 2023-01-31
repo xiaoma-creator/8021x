@@ -509,6 +509,7 @@ var auto = "自动";
 var open_txt = "开启";
 var close_txt = "关闭";
 var wifi_switch = '无线定时开关';
+var wpa_confirm = 'WPA Enterprise模式需要在802.1X认证界面配置认证服务器';
 
 /*wifi_mesh.html*/
 var mesh_set = "Mesh设置";

@@ -514,6 +514,7 @@ var auto="Auto";
 var open_txt = "Open";
 var close_txt = "Close";
 var wifi_switch = 'WiFi Enable';
+var wpa_confirm = 'In WPA Enterprise mode, you need to configure the authentication server on the 802.1X authentication page';
 
 /*wifi_mesh.html*/
 var mesh_set = "Mesh Setting";
@@ -1328,10 +1329,11 @@ var radius_auth_port = "*Radius authentication port";
 var radius_auth_key = "*Radius authentication key";
 var auth_default_port = "Default port 8012";
 
-var radius_count_server = "Radius counting server";
-var radius_count_port = "Radius counting port";
-var radius_count_key = "Radius counting key";
+var radius_count_server = "Radius accounting server";
+var radius_count_port = "Radius accounting port";
+var radius_count_key = "Radius accounting key";
 var count_default_port = "Default port 8013";
+
 
 var vlan_group = "SD-WAN";
 

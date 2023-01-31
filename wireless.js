@@ -332,7 +332,9 @@ function get_wifi5G_info() {
                 list += '<option value="3" sh_lang="wpa2_psk">'+wpa2_psk+'</option>';
                 list += '<option value="4" sh_lang="wpa__wpa2_psk">'+wpa__wpa2_psk+'</option>';
                 list += '<option value="5" sh_lang="wpa_psk">'+wpa_psk+'</option>';
-                // list += '<option value="6" sh_lang="wpa__wpa2_enterprise">'+wpa__wpa2_enterprise+'</option>';
+                if (support_8021x){
+                    list += '<option value="6" sh_lang="wpa__wpa2_enterprise">'+wpa__wpa2_enterprise+'</option>';
+                }
                 list += '<option value="0" sh_lang="close_txt">'+close_txt+'</option>';
                 list += '</select>';
                 list += ' </td>';
@@ -542,7 +544,9 @@ function get_wifi2g_info() {
                 list += '<option value="3" sh_lang="wpa2_psk">'+wpa2_psk+'</option>';
                 list += '<option value="4" sh_lang="wpa__wpa2_psk">'+wpa__wpa2_psk+'</option>';
                 list += '<option value="5" sh_lang="wpa_psk">'+wpa_psk+'</option>';
-                // list += '<option value="6" sh_lang="wpa__wpa2_enterprise">'+wpa__wpa2_enterprise+'</option>';
+                if (support_8021x){
+                    list += '<option value="6" sh_lang="wpa__wpa2_enterprise">'+wpa__wpa2_enterprise+'</option>';
+                }
                 list += '<option value="0" sh_lang="close_txt">'+close_txt+'</option>';
                 list += '</select>';
                 list += '</td>';
@@ -913,37 +917,63 @@ $("#apply").click(function () {
     if (!format_volide_ok()) {
         return;
     }
+
     if ($("#setting_box_24g").hasClass("active")) {
 
-        is_setting_status = 1;
+        if (support_8021x){
+            /**WPA need config radius server */
+            if ($("#encrypt_24g_0").val() == 6){
+                shconfirm(wpa_confirm, "confirm", {
+                    onClose: function (){
+                        return;
+                    },
+                    onOk: function(){
+                        is_setting_status = 1;
 
-        $.ajax({
-            type: 'post',
-            url: '/goform/set_wireless2g_settings',
-            data: get_post2g_data(),
-            success: function (data) {
-                if (data.ret == 1) {
-                    setting(data.init_time, gohref);
-                } else {
-                }
+                        $.ajax({
+                            type: 'post',
+                            url: '/goform/set_wireless2g_settings',
+                            data: get_post2g_data(),
+                            success: function (data) {
+                                if (data.ret == 1) {
+                                    setting(data.init_time, gohref);
+                                } else {
+                                }
+                            }
+                        })
+                    }
+                  })
+                
             }
-        })
+        }
+
     }
     if ($("#setting_box_58g").hasClass("active")) {
-
-        is_setting_status = 1;
-
-        $.ajax({
-            type: 'post',
-            url: '/goform/set_wireless5g_settings',
-            data: get_post5g_data(),
-            success: function (data) {
-                if (data.ret == 1) {
-                    setting(data.init_time, gohref);
-                } else {
-                }
+        if (support_8021x){
+            /**WPA need config radius server */  
+            if ($("#encrypt_58g_0").val() == 6){
+                shconfirm(wpa_confirm, "confirm", {
+                    onClose: function (){
+                        return;
+                    },
+                    onOk: function(){
+                        is_setting_status = 1;
+                
+                        $.ajax({
+                            type: 'post',
+                            url: '/goform/set_wireless5g_settings',
+                            data: get_post5g_data(),
+                            success: function (data) {
+                                if (data.ret == 1) {
+                                    setting(data.init_time, gohref);
+                                } else {
+                                }
+                            }
+                        })                 
+                    }
+                })
             }
-        })
+        }
     }
 
 })

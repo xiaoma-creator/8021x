@@ -1,13 +1,5 @@
 $(document).ready(function () { 
-    
-    $("#enable").change(function () { 
-        if ($("#enable").val() == "1"){
-            $("#guest_details").removeClass("hidden");
-        }else{
-            $("#guest_details").addClass("hidden");
-        }
-        
-    });
+    get8021xInfo();
 
     $(".auth_key_show").click(function () { 
         var pass_type = $("#auth_key").attr("type");
@@ -20,55 +12,60 @@ $(document).ready(function () {
         }
     });
 
-    $(".count_key_show").click(function () { 
-        var pass_type = $("#count_key").attr("type");
+    $(".acct_key_show").click(function () { 
+        var pass_type = $("#acct_key").attr("type");
         if(pass_type == "password"){
-            $("#count_key").attr("type","text");
-            $('.count_key_show').removeClass('fa-eye-slash').addClass('fa-eye');
+            $("#acct_key").attr("type","text");
+            $('.acct_key_show').removeClass('fa-eye-slash').addClass('fa-eye');
         }else{
-            $("#count_key").attr("type","password");
-            $('.count_key_show').removeClass('fa-eye').addClass('fa-eye-slash');
+            $("#acct_key").attr("type","password");
+            $('.acct_key_show').removeClass('fa-eye').addClass('fa-eye-slash');
         }
     });
+
     $("#saveConfig").click(function (){
         if (!format_volide_ok()) {
             return;
         }
-        
-        var cookies = getCookie("token");
-        var enable = $("#enable").val();
-        var ssid_24g = $("#ssid_24g").val();
-        var password_24g = $("#passwd_24g").val();
-        var encryption_24g = $("#encrypt_24g").val();
-        var open_time = $("#guest_open_time").val();
-        var lan_isolate;
 
-        if ($("#lan_isolate").prop("checked")){
-            lan_isolate = 1;
-        }else{
-            lan_isolate = 0;
-        }
+        var cookies = getCookie("token");
+        var auth_server = $("#auth_server").val();
+        var auth_port = $("#auth_port").val();
+        var auth_key = $("#auth_key").val();
+        var acct_server = $("#acct_server").val();
+        var acct_port = $("#acct_port").val();
+        var acct_key = $("#acct_key").val();
 
         is_setting_status = 1;
 
         $.ajax({
             contentType: "appliation/json",
             data: {
-                enable:enable,
-                ssid_24g:ssid_24g,
-                password_24g:password_24g,
-                encryption_24g:encryption_24g,
-                lan_isolate:lan_isolate,
-                open_time:open_time,
+                auth_server:auth_server,
+                auth_port:auth_port,
+                auth_key:auth_key,
+                acct_server:acct_server,
+                acct_port:acct_port,
+                acct_key:acct_key,
                 token: cookies
             },
             dataType: "json",
             type: "POST",
             cache: false,
             async: false,
-            url: "/goform/set_guest_network",
+            url: "/goform/set_8021x",
             success: function (data) {
-
+                if(data.ret == 0){
+                    //设置成功
+                    setting(20,gohref);
+                }else{
+                    //设置失败
+                    shconfirm(set_error, 'confirm', {
+                        onClose: function () {
+                            gohref();
+                        }
+                    })
+                }
             }
         });
     })
@@ -79,17 +76,31 @@ $(document).ready(function () {
     })
 });
 
-function getGuestInfo(){
+function get8021xInfo(){
     var cookies = getCookie("token");
     $.ajax({
         type: "POST",
-        url: "/goform/get_guest_network",
+        url: "/goform/get_8021x_info",
         data: {
             token: cookies
         },
         dataType: "json",
-        success: function (response) { 
+        success: function (response) {
+            $("#auth_server").val(response.auth_server);
+            if (response.auth_port == ""){
+                $("#auth_port").val("8012");
+            }else{
+                $("#auth_port").val(response.auth_port);
+            }
+            $("#auth_key").val(response.auth_key);
 
+            $("#acct_server").val(response.acct_server);
+            if (response.acct_port == ""){
+                $("#acct_port").val("8013");
+            }else{
+                $("#acct_port").val(response.acct_port);
+            }
+            $("#acct_key").val(response.acct_key);
         }
     });
 }

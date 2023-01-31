@@ -75,7 +75,7 @@
                                         <span sh_lang="radius_auth_port"></span>
                                     </div>
                                     <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                        <input class="form-control require isPorts" type="text" id="auth_port">
+                                        <input class="form-control require isPorts" type="text" onkeyup="this.value=this.value.replace(/\s+/g,'')" id="auth_port">
                                         <p sh_lang="auth_default_port"></p>
                                     </div>
                                 </div>
@@ -85,42 +85,42 @@
                                         <span sh_lang="radius_auth_key"></span>
                                     </div>
                                     <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                        <input type="password" class="form-control require isNONULL" id="auth_key" maxlength="64">
+                                        <input type="password" class="form-control require isNONULL" onkeyup="this.value=this.value.replace(/\s+/g,'')" id="auth_key" maxlength="64">
                                     </div>
                                     <div class="col-lg-17 col-sm-1 col-xs-1 form_right">
                                         <i class="auth_key_show fa fa-eye-slash" style="margin-left:2%"></i>
                                     </div>
                                 </div>
 
-                                <!-- counting server ip -->
+                                <!-- accounting  server ip -->
                                 <div class="row list mrg-btm30px">
                                     <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
                                         <span sh_lang="radius_count_server"></span>
                                     </div>
                                     <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                        <input class="form-control require isNULL isIP" type="text" id="count_server">
+                                        <input class="form-control require isNULL isIP" type="text" id="acct_server">
                                     </div>
                                 </div>
-                                <!--counting server port -->
+                                <!--accounting server port -->
                                 <div class="row list">
                                     <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
                                         <span sh_lang="radius_count_port"></span>
                                     </div>
                                     <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                        <input class="form-control require isNULL isPorts" type="text" id="count_port">
+                                        <input class="form-control require isNULL isPorts" type="text" id="acct_port" onkeyup="this.value=this.value.replace(/\s+/g,'')">
                                         <p sh_lang="count_default_port"></p>
                                     </div>
                                 </div>
-                                <!-- counting server key -->
+                                <!-- accounting server key -->
                                 <div class="row list mrg-btm30px">
                                     <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
                                         <span sh_lang="radius_count_key"></span>
                                     </div>
                                     <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                        <input type="password" class="form-control require isNULL" id="count_key" maxlength="64">
+                                        <input type="password" class="form-control require isNULL" id="acct_key" maxlength="64" onkeyup="this.value=this.value.replace(/\s+/g,'')">
                                     </div>
                                     <div class="col-lg-17 col-sm-1 col-xs-1 form_right">
-                                        <i class="count_key_show fa fa-eye-slash" style="margin-left:2%"></i>
+                                        <i class="acct_key_show fa fa-eye-slash" style="margin-left:2%"></i>
                                     </div>
                                 </div>
 
