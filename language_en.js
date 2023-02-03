@@ -1327,12 +1327,12 @@ var authentication_8021x = "802.1X Authentication";
 var radius_auth_server = "*Radius authentication server";
 var radius_auth_port = "*Radius authentication port";
 var radius_auth_key = "*Radius authentication key";
-var auth_default_port = "Default port 8012";
+var auth_default_port = "Default port 1812";
 
 var radius_count_server = "Radius accounting server";
 var radius_count_port = "Radius accounting port";
 var radius_count_key = "Radius accounting key";
-var count_default_port = "Default port 8013";
+var count_default_port = "Default port 1813";
 
 
 var vlan_group = "SD-WAN";

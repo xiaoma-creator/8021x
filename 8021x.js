@@ -88,7 +88,7 @@ function get8021xInfo(){
         success: function (response) {
             $("#auth_server").val(response.auth_server);
             if (response.auth_port == ""){
-                $("#auth_port").val("8012");
+                $("#auth_port").val("1812");
             }else{
                 $("#auth_port").val(response.auth_port);
             }
@@ -96,7 +96,7 @@ function get8021xInfo(){
 
             $("#acct_server").val(response.acct_server);
             if (response.acct_port == ""){
-                $("#acct_port").val("8013");
+                $("#acct_port").val("1813");
             }else{
                 $("#acct_port").val(response.acct_port);
             }
