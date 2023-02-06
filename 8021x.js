@@ -44,9 +44,9 @@ $(document).ready(function () {
                 auth_server:auth_server,
                 auth_port:auth_port,
                 auth_key:auth_key,
-                acct_server:acct_server,
-                acct_port:acct_port,
-                acct_key:acct_key,
+                // acct_server:acct_server,
+                // acct_port:acct_port,
+                // acct_key:acct_key,
                 token: cookies
             },
             dataType: "json",
@@ -94,13 +94,13 @@ function get8021xInfo(){
             }
             $("#auth_key").val(response.auth_key);
 
-            $("#acct_server").val(response.acct_server);
-            if (response.acct_port == ""){
-                $("#acct_port").val("1813");
-            }else{
-                $("#acct_port").val(response.acct_port);
-            }
-            $("#acct_key").val(response.acct_key);
+            // $("#acct_server").val(response.acct_server);
+            // if (response.acct_port == ""){
+            //     $("#acct_port").val("1813");
+            // }else{
+            //     $("#acct_port").val(response.acct_port);
+            // }
+            // $("#acct_key").val(response.acct_key);
         }
     });
 }
