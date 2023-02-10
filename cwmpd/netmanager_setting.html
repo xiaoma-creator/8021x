@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title sh_lang="netmanager_switch"></title>
+    <link type="image/x-icon" href="/images/favicon.ico" rel="shortcut icon" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/fonts/allfonts.css" />
+    <link rel="stylesheet" type="text/css" href="/css/theme.css" />
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome-4.7.0/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="/css/simple.switch.three.css" >
+    <script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<% getUciLanguage("lang");%>"></script>
+    <script type="text/javascript" src="/js/simple.switch.min.js"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+
+</head>
+
+<body module="setting_account" id="mbox_container">
+    <div id="theme-wrapper">
+        <!-- header start -->
+        <div class="navbar" id="header-navbar">
+            <div class="container-fluid">
+                <span id="logo" class="navbar-brand">
+                </span>
+                <div class="clearfix">
+                    <button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse"
+                        type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="fa fa-bars"></span>
+                    </button>
+                    <div class="nav-no-collapse pull-right" id="header-nav">
+                        <!-- add by common.js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header end -->
+
+        <div id="page-wrapper" class="container-fluid">
+            <div id="nav-col">
+                <div id="col-left" class="col-left-nano">
+                    <div id="col-left-inner" class="col-left-nano-content">
+                        <div class="collapse navbar-collapse navbar-ex1-collapse" id="sidebar-nav">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content-wrapper">
+                <div class="row">
+                    <!--left content start-->
+                    <div class="col-lg-12">
+                        <div class="main-box clearfix">
+                            <div class="main-box-header gray-bg">
+                                <h2 sh_lang="netmanager_switch"></h2>
+                            </div>
+                            <div class="main-box-header"></div>
+                            <div class="main-box-body">
+                                <div id="netmanager_details">
+                                <div class="row list">
+                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                        <span sh_lang="ACS_URL"></span>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                        <span class="tip_name hide" sh_lang="ACS_URL"></span>
+                                        <input type="text" class="form-control require isNULL" id="acs_url">
+                                    </div>
+                                </div>
+                                <div class="row list">
+                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                        <span sh_lang="netmanager_Install_Location"></span>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                        <span class="tip_name hide" sh_lang="netmanager_Install_Location"></span>
+                                        <input type="text" class="form-control require isNULL"  id="cpe_install_location">
+                                    </div>
+                                </div>
+                                <div class="row list">
+                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                        <span sh_lang="inform_interval"></span>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                        <input type="text" class="form-control require isNUM" name="_@30_65535" id="inform_interval">
+                                        <p sh_lang="default_value_300"></p>
+                                    </div>
+                                </div>
+                                <div class="row list">
+                                        <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                            <span sh_lang="ACS_auth"></span>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                            <input type="checkbox" class="checkbox" id="acs_check">
+                                        <br>
+                                        </div>
+                                </div>
+                                <div class="row list">
+                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                        <span sh_lang="ACS_UserName"></span>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                        <span class="tip_name hide" sh_lang="ACS_UserName"></span>
+                                        <input type="text" class="form-control require isNULL" id="acs_username">
+                                    </div>
+                                </div>
+                                <div class="row list">
+                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                        <span sh_lang="ACS_PassWord"></span>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                        <span class="tip_name hide" sh_lang="ACS_PassWord"></span>
+                                        <input type="text" class="form-control require isNULL"  id="acs_password">
+                                    </div>
+                                </div>
+                                <div class="row list">
+                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                        <span sh_lang="CPE_auth"></span>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                        <input type="checkbox" class="checkbox" id="cpe_check">
+                                    <br>
+                                    </div>
+                                </div>
+                                <div class="row list">
+                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                        <span sh_lang="CPE_UserName"></span>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                        <span class="tip_name hide" sh_lang="CPE_UserName"></span>
+                                        <input type="text" class="form-control require isNULL"  id="cpe_username">
+                                    </div>
+                                </div>
+								<div class="row list">
+                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                        <span sh_lang="CPE_PassWord"></span>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                        <span class="tip_name hide" sh_lang="CPE_PassWord"></span>
+                                        <input type="text" class="form-control require isNULL"  id="cpe_password">
+                                    </div>
+                                </div>
+                                
+                                </div>
+                                <div class="row list">
+                                    <div
+                                        class="col-md-4 col-xs-8  col-xs-offset-2">
+                                        <div class="row text-center">
+                                            <button type="button" id="apply_id" sh_lang="global_setting"
+                                                class="btn btn-warning mrg-b-lg col-lg-2 col-md-3 col-xs-5 col-lg-offset-2 col-md-offset-1"
+                                                et="click tap:saveConfig"></button>
+                                            <button type="button" id="clear_id" sh_lang="global_resetting"
+                                                class="btn btn-default mrg-b-lg col-lg-2 col-md-3 col-xs-5 col-lg-offset-4 col-md-offset-2 col-xs-offset-2"
+                                                et="click tap:doResetConfig"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--left content end-->
+                </div>
+                <div class="row">
+                    <div id="footer-bar" style="opacity: 1;">
+                        <p id="footer-copyright" class="col-xs-12" sh_lang="copyright"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="set_tips"></div>
+</body>
+<script type="text/javascript" src="/js/netmanager_setting.js"></script>
+</html>
