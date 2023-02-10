@@ -33,6 +33,28 @@ $(document).ready(function () {
         }
     })
 
+    $(".acs_password_show").click(function () { 
+        var pass_type = $("#acs_password").attr("type");
+        if(pass_type == "password"){
+            $("#acs_password").attr("type","text");
+            $('.acs_password_show').removeClass('fa-eye-slash').addClass('fa-eye');
+        }else{
+            $("#acs_password").attr("type","password");
+            $('.acs_password_show').removeClass('fa-eye').addClass('fa-eye-slash');
+        }
+    });
+
+    $(".cpe_password_show").click(function () { 
+        var pass_type = $("#cpe_password").attr("type");
+        if(pass_type == "password"){
+            $("#cpe_password").attr("type","text");
+            $('.cpe_password_show').removeClass('fa-eye-slash').addClass('fa-eye');
+        }else{
+            $("#cpe_password").attr("type","password");
+            $('.cpe_password_show').removeClass('fa-eye').addClass('fa-eye-slash');
+        }
+    });
+
     $("#netmanager_enable").change(function () {
         if ($("#netmanager_enable").val() == 1) {
             $('#netmanager_details').removeClass('hidden');
