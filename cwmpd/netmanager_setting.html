@@ -68,6 +68,14 @@
                                 <div id="netmanager_details">
                                 <div class="row list">
                                     <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                        <span sh_lang="global_status"></span>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                        <span class="form-contro" style="color: crimson;" id="connect_status"></span>
+                                    </div>
+                                </div>
+                                <div class="row list">
+                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
                                         <span sh_lang="ACS_URL"></span>
                                     </div>
                                     <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
@@ -102,7 +110,7 @@
                                         <br>
                                         </div>
                                 </div>
-                                <div class="row list">
+                                <div class="row list" id="div_acs_username" hidden>
                                     <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
                                         <span sh_lang="ACS_UserName"></span>
                                     </div>
@@ -111,7 +119,7 @@
                                         <input type="text" class="form-control require isNULL" id="acs_username">
                                     </div>
                                 </div>
-                                <div class="row list">
+                                <div class="row list" id="div_acs_password" hidden>
                                     <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
                                         <span sh_lang="ACS_PassWord"></span>
                                     </div>
@@ -131,7 +139,7 @@
                                     <br>
                                     </div>
                                 </div>
-                                <div class="row list">
+                                <div class="row list" id="div_cpe_username" hidden>
                                     <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
                                         <span sh_lang="CPE_UserName"></span>
                                     </div>
@@ -140,7 +148,7 @@
                                         <input type="text" class="form-control require isNULL"  id="cpe_username">
                                     </div>
                                 </div>
-								<div class="row list">
+								<div class="row list" id="div_cpe_password" hidden>
                                     <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
                                         <span sh_lang="CPE_PassWord"></span>
                                     </div>

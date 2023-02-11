@@ -9,13 +9,13 @@ $(document).ready(function () {
         if($(this).attr("checked")){
             $("#Switch0").removeClass("On");
             $("#acs_check").attr("checked", false);
-            $("#acs_username").attr("disabled", "true");
-            $("#acs_password").attr("disabled", "true");
+            $("#div_acs_username").attr("hidden", "true");
+            $("#div_acs_password").attr("hidden", "true");
         }else{
             $("#Switch0").addClass("On");
             $("#acs_check").attr("checked", true);
-            $("#acs_username").removeAttr("disabled");
-            $("#acs_password").removeAttr("disabled");
+            $("#div_acs_username").removeAttr("hidden");
+            $("#div_acs_password").removeAttr("hidden");
         }
     })
 
@@ -23,13 +23,13 @@ $(document).ready(function () {
         if($(this).attr("checked")){
             $("#Switch1").removeClass("On");
             $("#cpe_check").attr("checked", false);
-            $("#cpe_username").attr("disabled", "true");
-            $("#cpe_password").attr("disabled", "true");
+            $("#div_cpe_username").attr("hidden", "true");
+            $("#div_cpe_password").attr("hidden", "true");
         }else{
             $("#Switch1").addClass("On");
             $("#cpe_check").attr("checked", true);
-            $("#cpe_username").removeAttr("disabled");
-            $("#cpe_password").removeAttr("disabled");
+            $("#div_cpe_username").removeAttr("hidden");
+            $("#div_cpe_password").removeAttr("hidden");
         }
     })
 
@@ -133,6 +133,13 @@ $(document).ready(function () {
 			async: false,
 			url: "/goform/get_netmanager",
             success: function (data) {
+                if (data.connect_status){
+                    $("#connect_status").text(link_yes);
+                    $("#connect_status").css("color", "green");
+                }else{
+                    $("#connect_status").text(link_no);
+                    $("#connect_status").css("color", "crimson");                          
+                }
                 $("#acs_url").val(data.acs_url);
                 $("#acs_username").val(data.acs_username);
                 $("#acs_password").val(data.acs_password);
@@ -143,15 +150,25 @@ $(document).ready(function () {
                 if (data.acs_auth == 0){
                     $("#Switch0").removeClass("On");
                     $("#acs_check").attr("checked", false);
-                    $("#acs_username").attr("disabled", "true");
-                    $("#acs_password").attr("disabled", "true");
+                    $("#div_acs_username").attr("hidden", "true");
+                    $("#div_acs_password").attr("hidden", "true");
+                }else{
+                    $("#Switch0").addClass("On");
+                    $("#acs_check").attr("checked", true);
+                    $("#div_acs_username").removeAttr("hidden");
+                    $("#div_acs_password").removeAttr("hidden");
                 }
 
                 if (data.cpe_auth == 0){
                     $("#Switch1").removeClass("On");
                     $("#cpe_check").attr("checked", false);
-                    $("#cpe_username").attr("disabled", "true");
-                    $("#cpe_password").attr("disabled", "true");
+                    $("#div_cpe_username").attr("hidden", "true");
+                    $("#div_cpe_password").attr("hidden", "true");
+                }else{
+                    $("#Switch1").addClass("On");
+                    $("#cpe_check").attr("checked", true);
+                    $("#div_cpe_username").removeAttr("hidden");
+                    $("#div_cpe_password").removeAttr("hidden");
                 }
             }
         })
