@@ -87,8 +87,9 @@ var cellular_network = '蜂窝网络';
 var inter_5g = '5G';
 var inter_let = '4G';
 var inter_none = '未注网';
-var default_value_300 = '默认值: 300';
+var default_value_300 = '默认值: 300秒';
 var mode_type_wired = '有线';
+var upgrading = '升级中';
 /**guide */
 var wifi_name = 'Wi-Fi 名称';
 var wifi_pwd = 'Wi-Fi密码';
@@ -168,6 +169,7 @@ var msg_error_trip = '只能输入数字、英文字母及特殊字符-._@*!+=~<
 var msg_error_chinese = '不能输入中文及特殊字符（‘ “ % | ;）';
 var mac_addr_error = 'MAC地址输入错误，请重新输入';
 var pin_code_error = '请输出8位 PIN 码';
+var snmpv3_password_error = '请输入长度至少8位的密码';
 
 /**mode */
 var mode_error = '必须选择一个模式进行设置！';
@@ -182,7 +184,7 @@ var global_ipaddr = 'IP地址';
 var global_netmask = '子网掩码';
 var global_gateway = '默认网关';
 var global_dns_server = 'DNS服务器';
-var copyright = '湖南天冠电子信息技术有限公司&copy;版权所有';
+var copyright = '&copy;版权所有';
 var wan_static_ip = '静态IP';
 var wan_dhcp_ip = '动态获取';
 var wan_pppoe = 'PPPOE拨号';
@@ -190,13 +192,17 @@ var wan_4g = '4G';
 var lte_ppp = '4G拨号';
 var lte_proto_name = '协议';
 var lte_proto = '默认';
+var lte_name = '名称';
 var lte_apn = 'APN';
 var lte_apn_tip = 'APN(选填)';
 var lte_username_tip = '用户名(选填)';
 var lte_password_tip = '密码(选填)';
 var lte_username = "用户名";
 var lte_passwd = "密码";
-var type_setting = "认证类型";
+var lte_type = "认证类型";
+var lte_select_error = "请选择有效的选项";
+var lte_set_error = '已存在同名配置';
+var lte_add_error = '最多存在6种配置';
 var global_next = '下一步';
 var global_prev = '上一步';
 var global_finish = "完成";
@@ -257,6 +263,7 @@ var status_5g_always_off = "关闭";
 var status_5g_intelligent_switch = "有线优先";
 var status_5g_always_on = "总是在线";
 var status_5g_balance = "负载均衡";
+var status_5g_half_bridge = "半桥模式";
 var gre_mtuex = "设置范围: 64-65535";
 var gre_ttlex = "设置范围: 1-255";
 var tip_usr_name = "1~32位字符";
@@ -365,6 +372,7 @@ var module_error = '模组异常!';
 var mobile_set = '移动连接';
 var basic_set = '基础设置';
 var band_lock = '频段锁定';
+var status_info = '状态信息';
 var band_lock_sa = 'SA:';
 var band_lock_5g_nr = '5G NR:';
 var band_lock_nsa = 'NSA:';
@@ -394,6 +402,40 @@ var pin_input_new = '输入更新PIN码';
 var pin_cfg_error = 'PIN正在配置中,请稍候再配置';
 var pin_cfg_pin_err = 'PIN码错误';
 var pin_cfg_puk_err = 'PUK码错误';
+var model_mcc = 'MCC';
+var model_mnc = 'MNC';
+var model_pci = 'PCI';
+var model_band = 'BAND';
+var model_rssi = 'RSSI';
+var model_rsrp = 'RSRP';
+var model_rsrq = 'RSRQ';
+var model_sinr = 'SINR';
+var model_imei = 'IMEI';
+var model_cell = 'CELL';
+var model_version = '版本号';
+var upgrade_info = '升级';
+var upgrade_method = '升级方式';
+var upgrade_server_type = '服务器类型';
+var mobile_username = '用户名';
+var mobile_password = '密码';
+var mobile_serverurl = '服务器url';
+var mobile_port = '端口';
+var mobile_filepath = '文件路径';
+var dfota_upgrade_cmd_correct = '下发指令正确';
+var dfota_upgrade_cmd_error = '下发指令错误';
+var dfota_upgrade_get_package = '正在获取升级包';
+var dfota_upgrade_got_package = '获取升级包成功';
+var dfota_upgrade_start = '开始升级';
+var dfota_upgrading = '升级中';
+var dfota_upgrade_success = '升级成功';
+var dfota_upgrade_error505 = '升级失败 : 升级包校验失败';
+var dfota_upgrade_error502 = '升级失败 : 未知错误或异常导致退出升级程序，或升级包不正确';
+var dfota_upgrade_error510 = '升级失败 : 升级包文件与模块源文件不匹配，需检查升级包是否正确';
+var dfota_upgrade_error511 = '升级失败 : 升级空间不足';
+var dfota_upgrade_errors = '升级失败 : 模块重启并重新升级直至升级成功';
+var dfota_upgrade_error601_or_error701 = '获取升级包失败 : 未知错误（可以尝试检查网络）';
+var dfota_upgrade_message1 = '模组初始化';
+var dfota_upgrade_message2 = '重置模组';
 
 /**server_set */
 var server_set = '服务器配置';
@@ -529,6 +571,8 @@ var channel_threshold_tip = "范围: 0 ~ 100";
 var back_haul_2g = "2G回程优先级";
 var back_haul_5g = "5G回程优先级";
 var back_haul_status = "回程状态";
+var wifi_mesh_onboard = "WIFI组网";
+var wifi_mesh_trigger = "触发WIFI组网";
 
 /**guest_network.html */
 var guest_switch = "访客网络开关";
@@ -588,6 +632,9 @@ var pctr_thu = '周四';
 var pctr_fri = '周五';
 var pctr_sat = '周六';
 var pctr_sun = '周七';
+var weekdays_error = '生效日为空，请至少选择一个生效日！';
+var start_time_error = '开始时间为空！';
+var end_time_error = '结束时间为空！';
 
 /*ipfilter.html*/
 var ip_filter_list = 'IP过滤列表';
@@ -762,6 +809,7 @@ var ddns_passwd = '密码/密匙';
 
 /*pptp.html*/
 var index_setup_pptp = "PPTP客户端";
+var pptp_ip_addr = 'IP地址';
 var pptp_switch = 'pptp开关';
 var pptp_domain_name = '服务器地址';
 var pptp_user_name = '用户名';
@@ -773,6 +821,7 @@ var pptp_encryption_none = '无';
 
 /*l2tp.html*/
 var index_setup_l2tp = "L2TP客户端";
+var l2tp_ip_addr = 'IP地址';
 var l2tp_switch = 'l2tp开关';
 var l2tp_domain_name = '服务器地址';
 var l2tp_user_name = '用户名';
@@ -781,7 +830,6 @@ var l2tp_encryption = '加密算法';
 var l2tp_encryption_mppe_128 = 'MPPE-128';
 var l2tp_encryption_mppe_40 = 'MPPE-40';
 var l2tp_encryption_none = '无';
-
 
 /*gre_setting.html*/
 var index_setup_gre = "GRE设置";
@@ -1263,10 +1311,10 @@ var snmp_set = 'SNMP设置';
 var snmp_user = '用户';
 var snmp_enable = '开启SNMP';
 var community_name = '团体名称';
-var community_access = '访问权限';
 var community_add = '新增SNMP团体';
-var community_rw = '读写';
-var community_ro = '只读';
+var snmp_access = '访问权限';
+var snmp_access_rw = '读写';
+var snmp_access_ro = '只读';
 var v3user_add  = '新增SNMP用户';
 var v3user_name = '用户名';
 var v3user_seclevel = '安全级别';
@@ -1281,7 +1329,7 @@ var encrypt_des = 'DES';
 var noauthnopriv = '不认证不加密';
 var authnopriv = '认证不加密';
 var authpriv = '认证及加密';
-var passwd_len = '密码长度须大于等于8位';
+var snmpkey_len = '密码长度最少8位';
 
 /*message*/
 var message = '短信';
@@ -1297,6 +1345,37 @@ var msg_send = '发送';
 var msg_setting = '短信设置';
 var msg_enable = '开启短信';
 var country_code = '国家或地区代码';
+var view_details = '查看详细信息';
+var sim_error = '操作失败！！SIM卡未插入';
+var msg_current_page = '当前第 ';
+var msg_total_page = ' 页/共 ';
+var msg_pagesize = ' 页 每页显示 10 条记录, ';
+var msg_home_last_page = '首页 上一页 ';
+var msg_home_page = '首页 ';
+var msg_last_page = '上一页 ';
+var msg_next_end_page = '下一页 尾页';
+var msg_next_page = '下一页 ';
+var msg_end_page = ' 尾页';
+
+/*mqtt*/
+var mqtt_client = 'MQTT 客户端';
+var mqtt_pub = '发布';
+var mqtt_sub = '订阅';
+var mqtt_enable = '开启MQTT';
+var mqtt_settings = 'MQTT设置';
+var mqtt_broker_address = 'MQTT服务器地址';
+var mqtt_broker_port = 'MQTT服务器端口';
+var mqtt_clientid = '客户端ID';
+var mqtt_username = '用户名';
+var mqtt_password = '密码';
+var mqtt_topic = '主题';
+var mqtt_qos = 'QoS';
+var mqtt_qos0 = 'QoS0';
+var mqtt_qos1 = 'QoS1';
+var mqtt_qos2 = 'QoS2';
+var mqtt_msg = '消息内容';
+var mqtt_publish_add = '新建发布';
+var mqtt_subscribe_add = '新建订阅';
 
 /* ntp.htm */
 var ntp_header = '时间设置';

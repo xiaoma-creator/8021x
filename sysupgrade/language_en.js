@@ -87,8 +87,9 @@ var cellular_network = 'Cellular Network';
 var inter_5g = '5G';
 var inter_let = '2G/3G/4G';
 var inter_none = 'UNKNOWN';
-
+var default_value_300 = 'Default value: 300 second';
 var mode_type_wired = 'Wired';
+var upgrading = 'Upgrading';
 /**guide */
 var wifi_name = 'Wi-Fi name';
 var wifi_pwd = 'Wi-Fi Password';
@@ -164,11 +165,12 @@ var msg_error_pwd_wep = 'The password is wrong. When the encryption mode is WEP,
 var msg_error_pwd = 'Password error, password length can only be 8-64 bits!';
 var msg_error_one_dns = 'First DNS cannot be empty!';
 var msg_error_comm = 'Note length cannot exceed 30 bits!';
-msg_error_spacial = 'Only the following special characters -_@*!+=~<>';
+var msg_error_spacial = 'Only the following special characters -_@*!+=~<>';
 var msg_error_trip = 'Only numbers, English letters and special characters -. @ *! + = ~ < > can be entered';
 var msg_error_chinese = 'Chinese and special characters(‘ “ % | ;) cannot be entered';
 var mac_addr_error = 'MAC address input error,please re-enter.';
 var pin_code_error = 'Please enter the 8-digit PIN code';
+var snmpv3_password_error = 'Please enter password of at least 8 digits in length';
 
 /**mode */
 var mode_error = 'A mode must be selected for setting!';
@@ -190,13 +192,17 @@ var wan_pppoe = 'PPPOE';
 var lte_ppp = '4G Internet';
 var lte_proto_name = 'Protocol';
 var lte_proto = 'Default';
+var lte_name = 'Name';
 var lte_apn = 'APN';
 var lte_apn_tip = 'APN(optional)';
 var lte_username_tip = 'Username(optional)';
 var lte_password_tip = 'Password(optional)';
 var lte_username = "Username";
 var lte_passwd = "password";
-var type_setting = "Authentication";
+var lte_type = "Authentication";
+var lte_select_error = "Please select valid option";
+var lte_set_error = 'There was a configuration with the same name!';
+var lte_add_error = 'There are six configuration at most!';
 var global_next = 'Next';
 var global_prev = 'Back';
 var global_finish = "Finish";
@@ -257,6 +263,7 @@ var status_5g_always_off = "close";
 var status_5g_intelligent_switch = "Wired Priority";
 var status_5g_always_on = "Always on";
 var status_5g_balance = "Load balancing";
+var status_5g_half_bridge = "Harf bridge";
 var gre_mtuex = "The MTU setting range is 64-65535";
 var gre_ttlex = "The TTL setting range is 1-255";
 var tip_usr_name = "1~32 characters";
@@ -367,6 +374,7 @@ var module_error = 'Module exception!';
 var mobile_set = 'Mobile Connection';
 var basic_set = 'Basic Setting';
 var band_lock = 'Band Lock';
+var status_info = 'Status Info';
 var band_lock_sa = 'SA:';
 var band_lock_5g_nr = '5G NR:';
 var band_lock_nsa = 'NSA:';
@@ -396,6 +404,41 @@ var pin_input_new = 'New PIN Code';
 var pin_cfg_error = 'PIN is being configured, please configure it later';
 var pin_cfg_pin_err = 'PIN code error';
 var pin_cfg_puk_err = 'PUK code error';
+var model_mcc = 'MCC';
+var model_mnc = 'MNC';
+var model_pci = 'PCI';
+var model_band = 'BAND';
+var model_rssi = 'RSSI';
+var model_rsrp = 'RSRP';
+var model_rsrq = 'RSRQ';
+var model_sinr = 'SINR';
+var model_imei = 'IMEI';
+var model_cell = 'CELL';
+var model_version = 'Version';
+var upgrade_info = 'Upgrade';
+var upgrade_method = 'Upgrade Method';
+var upgrade_server_type = 'server type';
+var mobile_username = 'user name';
+var mobile_password = 'password';
+var mobile_serverurl = 'server url';
+var mobile_port = 'port';
+var mobile_filepath = 'filepath';
+var dfota_upgrade_cmd_correct = 'upgrade command correct';
+var dfota_upgrade_cmd_error = 'upgrade command error';
+var dfota_upgrade_get_package = 'getting upgrade package';
+var dfota_upgrade_got_package = 'got upgrade package successfully';
+var dfota_upgrade_start = 'upgrade start';
+var dfota_upgrading = 'upgrading ';
+var dfota_upgrade_success = 'upgrade success';
+var dfota_upgrade_error505 = 'upgrade failed : the delta firmware package check failed';
+var dfota_upgrade_error502 = 'upgrade failed : unkown error or exceptions, or package is incorrect';
+var dfota_upgrade_error510 = 'upgrade failed : package file does not match the source package file of the module';
+var dfota_upgrade_error511 = 'upgrade failed : no enough space for upgrade';
+var dfota_upgrade_errors = 'upgrade failed : the module will reboot and retry to upgrade the firmware until the upgrade is successful';
+var dfota_upgrade_error601_or_error701 = 'get upgrade package failed : unkown error (maybe try to check the network)';
+var dfota_upgrade_message1 = 'module init';
+var dfota_upgrade_message2 = 'module reset';
+
 
 /**server_set */
 var server_set = 'Server Setting';
@@ -522,6 +565,20 @@ var mesh_switch = "Mesh Enable";
 var mesh_role = "Mesh Role";
 var mesh_master = "Master";
 var mesh_agent = "Agent";
+var mesh_basic = "Basic";
+var mesh_advanced = "Advanced";
+var mesh_topology = "Topology";
+var mesh_steering = "Steering";
+var steering_threshold = "Steering Threshold";
+var channel_threshold_2g = "2G Channel Utilization Threshold";
+var channel_threshold_5g = "5G Channel Utilization Threshold";
+var steering_threshold_tip = "Range: -90 to 0, Unit: dbm";
+var channel_threshold_tip = "Range: 0 to 100 %";
+var back_haul_2g = "2G Back-haul priority";
+var back_haul_5g = "5G Back-haul priority";
+var back_haul_status = "Back-haul Status";
+var wifi_mesh_onboard = "WIFI On-Board";
+var wifi_mesh_trigger = "Trigger WIFI On-Board";
 
 /**guest_network.html */
 var guest_switch = "Guest Enable";
@@ -530,6 +587,7 @@ var lan_isolate_tip = "When this function is enabled, the guest network users ca
 var one_day = "One Day";
 var three_day = "Three Days";
 var forever = "Forever";
+var guest = "Guest";
 
 /**user_list.html */
 var online_list = "User List";
@@ -579,6 +637,10 @@ var pctr_thu = 'Thu';
 var pctr_fri = 'Fri';
 var pctr_sat = 'Sat';
 var pctr_sun = 'Sun';
+var weekdays_error = 'The value of weekdays is NULL, please check one option at least!';
+var start_time_error = 'The value of start time is NULL!';
+var end_time_error = 'The value of end time is NULL!';
+
 
 /*ipfilter.html*/
 var ip_filter_list = 'IP filter list';
@@ -754,6 +816,7 @@ var ddns_passwd = ' Password/Key';
 
 /*pptp.html*/
 var index_setup_pptp = "PPTP Client";
+var pptp_ip_addr = 'Ip Address';
 var pptp_switch = 'pptp Open';
 var pptp_domain_name = 'Server';
 var pptp_user_name = 'User';
@@ -765,6 +828,7 @@ var pptp_encryption_none = 'No Encryption';
 
 /*l2tp.html*/
 var index_setup_l2tp = "L2TP Client";
+var l2tp_ip_addr = 'Ip Address';
 var l2tp_switch = 'l2tp Open';
 var l2tp_domain_name = 'Server';
 var l2tp_user_name = ' User ';
@@ -1186,6 +1250,10 @@ var CPE_UserName = 'CPE UserName';
 var CPE_PassWord = 'CPE PassWord';
 var netmanager_Install_Location = 'Install Location';
 var netmanager_url_error = 'Network management Platform address cannot be empty!';
+var ACS_auth = 'ACS Authentication';
+var CPE_auth = 'CPE Authentication';
+var inform_interval = 'Inform Interval';
+
 /* host server */
 var host_server_header = 'Remote Server Settings';
 var host_server_addr = 'Server IP Addr';
@@ -1200,10 +1268,10 @@ var snmp_set = 'SNMP Setting';
 var snmp_user = 'V3 User';
 var snmp_enable = 'Enable SNMP';
 var community_name = 'Community Name';
-var community_access = 'Access Level';
 var community_add = 'New SNMP Community';
-var community_rw = 'Read Write';
-var community_ro = 'Read Only';
+var snmp_access = 'Access Level';
+var snmp_access_rw = 'Read Write';
+var snmp_access_ro = 'Read Only';
 var v3user_add  = 'New SNMP V3 User';
 var v3user_name = 'User Name';
 var v3user_seclevel = 'Seecurity Level';
@@ -1218,7 +1286,7 @@ var encrypt_des = 'DES';
 var noauthnopriv = 'noAuthNoPriv';
 var authnopriv = 'authNoPriv';
 var authpriv = 'authPriv';
-var passwd_len = 'Password length must be greater than or equal to 8 digits';
+var snmpkey_len = 'Password must contain at least 8 characters in length';
 
 /*message*/
 var message = 'Message';
@@ -1231,6 +1299,40 @@ var date = 'Date';
 var search = 'Search';
 var add_new = 'New Message';
 var msg_send = 'Send';
+var msg_setting = 'Message Setting';
+var msg_enable = 'Enable Message';
+var country_code = 'Country Code';
+var view_details = 'View Details';
+var sim_error = 'Operation failed!! sim card not inserted.';
+var msg_current_page = 'Current No ';
+var msg_total_page = ' Page/Total ';
+var msg_pagesize = ' Page Display 10 records per page, ';
+var msg_home_last_page = 'Home Last ';
+var msg_home_page = 'Home ';
+var msg_last_page = 'Last ';
+var msg_next_end_page = ' Next End';
+var msg_next_page = 'Next ';
+var msg_end_page = ' End';
+
+/*mqtt*/
+var mqtt_client = 'MQTT Client';
+var mqtt_pub = 'Publish';
+var mqtt_sub = 'Subscribe';
+var mqtt_enable = 'Enable MQTT Client';
+var mqtt_settings = 'MQTT Settings';
+var mqtt_broker_address = 'MQTT Broker Address';
+var mqtt_broker_port = 'MQTT Broker Port';
+var mqtt_clientid = 'Client ID';
+var mqtt_username = 'User Name';
+var mqtt_password = 'Password';
+var mqtt_topic = 'Topic';
+var mqtt_qos = 'QoS';
+var mqtt_qos0 = 'QoS0';
+var mqtt_qos1 = 'QoS1';
+var mqtt_qos2 = 'QoS2';
+var mqtt_msg = 'Message Content';
+var mqtt_publish_add = 'Add Publish';
+var mqtt_subscribe_add = 'Add Subscribe';
 
 /* ntp.htm */
 var ntp_header = 'Time Setting';
@@ -1328,14 +1430,12 @@ var radius_auth_server = "*Radius authentication server";
 var radius_auth_port = "*Radius authentication port";
 var radius_auth_key = "*Radius authentication key";
 var auth_default_port = "Default port 1812";
-
 var radius_count_server = "Radius accounting server";
 var radius_count_port = "Radius accounting port";
 var radius_count_key = "Radius accounting key";
 var count_default_port = "Default port 1813";
-
-
 var vlan_group = "SD-WAN";
+
 
 $(document).ready(function (){
     replacetext();
