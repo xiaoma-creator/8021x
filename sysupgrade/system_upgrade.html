@@ -20,7 +20,16 @@
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<% getUciLanguage("lang");%>"></script>
     <script type="text/javascript" src="/js/common.js"></script>
-    
+
+    <style>
+        .margin-bottom-20px{
+            margin-bottom: 20px;
+        }
+
+        .margin-top-20px{
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body module="system_upgrade" id="mbox_container">
@@ -62,45 +71,54 @@
                             <div class="main-box-header gray-bg">
                                 <h2 sh_lang="index_system_upgrade"></h2>
                             </div>
-                            <div class="main-box-header"></div>
                             <div class="main-box-body">
-                                <div class="row list">
-                                    <div
-                                        class="col-lg-4 col-md-6 col-xs-8  col-xs-offset-2 col-lg-offset-4 col-md-offset-3">
-                                        <div class="row">
-                                            <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                                <span sh_lang="upload_version"></span>
-                                            </div>
+                                <div class="row list margin-top-20px margin-bottom-20px" >
+                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                        <span sh_lang="upload_version"></span>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                        <span id="version" style="color:#2980B9"></span>
+                                    </div>
+                                </div>
+
+                                <!-- 在线升级 -->
+                                <div class="main-box" style="border: none;box-shadow: none;">
+                                    <div class="main-box-header gray-bg">
+                                        <h2 sh_lang="upgrade_online"></h2>
+                                    </div>
+                                    <div class="main-box-main-box-body margin-top-20px">
+                                        <div class="row list" >
+                                            <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right"></div>
                                             <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                                <span id="version" style="color:#2980B9"></span>
+                                                <button class="btn btn-primary" sh_lang="check_upgrade" id="btn_check_upgrade"></button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- 本地升级 -->
+                                <div class="main-box-header gray-bg" >
+                                    <h2 sh_lang="upgrade_local"></h2>
+                                </div>
                                 <form id="upgrade" name="upgrade" action="" method="post" target="form" enctype="multipart/form-data">
-                                <div class="row list">
-                                    <div
-                                        class="col-lg-4 col-md-6 col-xs-8  col-xs-offset-2 col-lg-offset-4 col-md-offset-3">
-                                        <div class="col-lg-12">
-                                            <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                                <span sh_lang="upload_file_select"></span>
-                                            </div>
-                                            <div class="col-lg-7 col-md-7 col-xs-7">
-                                                <input class="form-selet" type="file" name="upload_file" id="upload_file"
-                                                    accept=".bin">
-                                            </div>
-                                        </div>
+                                <div class="row list margin-top-20px margin-bottom-20px">
+                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                        <span sh_lang="upload_file_select"></span>
+                                    </div>
+                                    <div class="col-lg-7 col-md-7 col-xs-7">
+                                        <input class="form-selet" type="file" name="upload_file" id="upload_file"
+                                            accept=".bin">
                                     </div>
                                 </div>
                                 <!--<div id="loading_pic" style="text-align: center;"><img src="/images/loadings.gif" /></div>-->
                                 </form>
                                 <iframe style="position:absolute;top:-9999px;display:none;"  name="form" id="form"></iframe>
                                 <div class="row list">
-                                    <div
-                                        class="col-md-4 col-xs-8  col-xs-offset-2">
+                                    <div class="col-md-4 col-xs-8  col-xs-offset-2">
                                         <div class="row">
                                             <button type="button"
-                                                class="btn btn-primary mrg-b-lg col-lg-2 col-md-3 col-xs-5 col-lg-offset-2 col-md-offset-1" id="save"
+                                                class="btn btn-primary mrg-b-lg col-lg-2 col-md-3 col-xs-5 col-lg-offset-2 col-md-offset-1"
+                                                id="save"
                                                 et="click tap:saveConfig" sh_lang="upload_header"></button>
                                             <button type="button" sh_lang="global_resetting"
                                                 class="btn btn-default mrg-b-lg col-lg-2 col-md-3 col-xs-5 col-lg-offset-4 col-md-offset-2 col-xs-offset-2"

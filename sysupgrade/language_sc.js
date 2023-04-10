@@ -1479,6 +1479,11 @@ var radius_count_key = "Radius 计费密钥"
 var count_default_port = "默认端口1813";
 var vlan_group="SD-WAN";
 
+/**system_upgrade.html */
+var upgrade_online = "在线升级";
+var upgrade_local = "本地升级";
+var check_upgrade = "检查更新";
+
 $(document).ready(function (){
     replacetext();
 })

@@ -1436,6 +1436,10 @@ var radius_count_key = "Radius accounting key";
 var count_default_port = "Default port 1813";
 var vlan_group = "SD-WAN";
 
+/**system_upgrade.html */
+var upgrade_online = "Online update";
+var upgrade_local = "Local upgrade";
+var check_upgrade = "Check for updates";
 
 $(document).ready(function (){
     replacetext();
