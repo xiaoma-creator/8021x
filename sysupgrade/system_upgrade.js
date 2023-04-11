@@ -27,7 +27,7 @@ $(document).ready(function () {
                     $("#upgrade").attr("action", "/cgi-bin/upgrade_firmware.cgi?_reset=0&upload&token="+cookies);
                     $("#upgrade").submit();
                     $("#loadings_div").removeClass('hide');
-                    
+
                 }
             });
         }
@@ -63,6 +63,25 @@ $(document).ready(function () {
     $("#cancle").click(function () {
         $('input').val('');
     })
+
+    $("#btn_check_upgrade").click(function () {
+        var cookies = getCookie("token");
+        $.ajax({
+            contentType: "appliation/json",
+            data: {token: cookies},
+            dataType: "json",
+            type: "POST",
+            cache: false,
+            async: false,
+            url: "/goform/online_upgrade_check",
+            success: function (data) {
+                if (data) {
+                    console.log(data);
+                }
+            }
+        })
+
+    });
 })
 
 function refresh_init() {
