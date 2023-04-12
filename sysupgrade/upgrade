@@ -1,0 +1,5 @@
+config server 'fw_srvinfo'
+	option addr '10.2.55.23'
+	option username 'test'
+	option password 'test'
+	option port '21'

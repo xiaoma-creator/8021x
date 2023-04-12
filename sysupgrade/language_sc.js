@@ -90,6 +90,8 @@ var inter_none = '未注网';
 var default_value_300 = '默认值: 300秒';
 var mode_type_wired = '有线';
 var upgrading = '升级中';
+var g_version = '版本';
+var g_size = '大小';
 /**guide */
 var wifi_name = 'Wi-Fi 名称';
 var wifi_pwd = 'Wi-Fi密码';
@@ -247,6 +249,7 @@ var null_tips = "不能为空";
 var hardware_model_tips = ',请先连接需要更新固件的AP！';
 var global_information = "提示";
 var global_warning = "警告";
+var global_upgrade = "版本更新";
 var netmask_tiptext = "请根据IP地址选择对应的子网掩码";
 var gateway_tiptext = "请根据IP地址填充网关地址";
 var gateway_gre_tiptext = "请输入对端gre隧道IP作为网关";
@@ -1483,6 +1486,7 @@ var vlan_group="SD-WAN";
 var upgrade_online = "在线升级";
 var upgrade_local = "本地升级";
 var check_upgrade = "检查更新";
+var confirm_upgrade = "确认升级";
 
 $(document).ready(function (){
     replacetext();

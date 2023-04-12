@@ -90,6 +90,8 @@ var inter_none = 'UNKNOWN';
 var default_value_300 = 'Default value: 300 second';
 var mode_type_wired = 'Wired';
 var upgrading = 'Upgrading';
+var g_version = 'Version';
+var g_size = 'Size';
 /**guide */
 var wifi_name = 'Wi-Fi name';
 var wifi_pwd = 'Wi-Fi Password';
@@ -247,6 +249,7 @@ var null_tips = "Can't be null";
 var hardware_model_tips = ',please connect the AP that needs to update the firmware first!';
 var global_information = "Information";
 var global_warning = "Warning";
+var global_upgrade = "Version update";
 var netmask_tiptext = "Please according IP to set netmask";
 var gateway_tiptext = "Please according IP to set gateway";
 var gateway_gre_tiptext = "Please according the gre IP of opposite device as the gateway";
@@ -1440,6 +1443,7 @@ var vlan_group = "SD-WAN";
 var upgrade_online = "Online update";
 var upgrade_local = "Local upgrade";
 var check_upgrade = "Check for updates";
+var confirm_upgrade = "Confirm the upgrade";
 
 $(document).ready(function (){
     replacetext();
