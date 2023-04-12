@@ -87,7 +87,23 @@ $(document).ready(function () {
                     var message = g_version + ': ' + version + '\n' + g_size + ': ' + size + '\n' + confirm_upgrade + ' ?';
                     shconfirm(message, 'upgrade', {
                         onOk: function () {
-
+                            var cookies = getCookie("token");
+                            $.ajax({
+                                contentType: "appliation/json",
+                                data: {token: cookies},
+                                dataType: "json",
+                                type: "POST",
+                                cache: false,
+                                async: false,
+                                url: "/goform/online_upgrade",
+                                success: function (data) {
+                                    console.log(data);
+                                    if (data.ret == 1) {
+                                    }
+                                    else{
+                                    }
+                                }
+                            })
                         }
                     });
                 }
