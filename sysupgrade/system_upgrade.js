@@ -68,7 +68,6 @@ $(document).ready(function () {
         var cookies = getCookie("token");
 
         is_setting_status = 1;
-        $("#online_loading_pic").removeClass("hide");
 
         $.ajax({
             contentType: "appliation/json",
@@ -76,11 +75,13 @@ $(document).ready(function () {
             dataType: "json",
             type: "POST",
             cache: false,
-            async: false,
+            async: true,
             url: "/goform/online_upgrade_check",
+            beforeSend: function () {
+                $("#online_loading_pic").removeClass("hide");
+            },
             success: function (data) {
                 $("#online_loading_pic").addClass("hide");
-                console.log(data);
                 if (data.ret == 1) {
                     var version = data.version;
                     var size = data.size;
@@ -88,19 +89,30 @@ $(document).ready(function () {
                     shconfirm(message, 'upgrade', {
                         onOk: function () {
                             var cookies = getCookie("token");
+
                             $.ajax({
                                 contentType: "appliation/json",
                                 data: {token: cookies},
                                 dataType: "json",
                                 type: "POST",
                                 cache: false,
-                                async: false,
+                                async: true,
                                 url: "/goform/online_upgrade",
+                                beforeSend: function () {
+                                    $("#loadings_div").removeClass("hide");
+                                },
                                 success: function (data) {
-                                    console.log(data);
                                     if (data.ret == 1) {
+                                        $("#loading_pic").addClass("hide");
+                                        $("#backdrop_div").addClass("hide");
+                                        setting(300, gohref_upgrade);
                                     }
                                     else{
+                                        shconfirm(fw_error, "error", {
+                                            onOk:function () {
+                                                gohref();
+                                            }
+                                        })
                                     }
                                 }
                             })
@@ -108,7 +120,8 @@ $(document).ready(function () {
                     });
                 }
                 else{
-
+                    shconfirm(is_latest_version, "success", {
+                    })
                 }
             }
         })

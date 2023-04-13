@@ -1444,6 +1444,8 @@ var upgrade_online = "Online update";
 var upgrade_local = "Local upgrade";
 var check_upgrade = "Check for updates";
 var confirm_upgrade = "Confirm the upgrade";
+var is_latest_version = "This is the latest version";
+var fw_error = "Firmware verification failure";
 
 $(document).ready(function (){
     replacetext();

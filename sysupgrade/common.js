@@ -1681,6 +1681,7 @@ function shconfirm(popHtml, type, options) {
         error: "error",
         confirm: "confirm",
         warning: "warning",
+        upgrade: "upgrade",
         custom: "custom"
     };
 

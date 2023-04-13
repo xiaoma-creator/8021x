@@ -1487,6 +1487,8 @@ var upgrade_online = "在线升级";
 var upgrade_local = "本地升级";
 var check_upgrade = "检查更新";
 var confirm_upgrade = "确认升级";
+var is_latest_version = "已是最新版本";
+var fw_error = "固件验证失败";
 
 $(document).ready(function (){
     replacetext();
