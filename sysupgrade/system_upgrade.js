@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $("#loadings_div").addClass('hide');
+    $("#loadings_div2").addClass('hide');
     refresh_init();
 
     function validInput() {
@@ -78,10 +79,13 @@ $(document).ready(function () {
             async: true,
             url: "/goform/online_upgrade_check",
             beforeSend: function () {
+                // 不能加
+                $("#loadings_div2").removeClass("hide");
                 $("#online_loading_pic").removeClass("hide");
             },
             success: function (data) {
                 $("#online_loading_pic").addClass("hide");
+                $("#loadings_div2").addClass("hide");
                 if (data.ret == 1) {
                     var version = data.version;
                     var size = data.size;
@@ -110,6 +114,8 @@ $(document).ready(function () {
                                     else{
                                         shconfirm(fw_error, "error", {
                                             onOk:function () {
+                                                $("#loading_pic").addClass("hide");
+                                                $("#backdrop_div").addClass("hide");
                                                 gohref();
                                             }
                                         })
