@@ -72,6 +72,9 @@
 								<li id="tab_li_status_info">
 									<a id="tab_status_info" sh_lang="status_info"></a>
 								</li>
+								<li id="tab_li_ca_info">
+									<a id="tab_ca_info" sh_lang="ca_info"></a>
+								</li>
 								<li id="tab_li_upgrade_info">
 									<a id="tab_upgrade_info" sh_lang="upgrade_info"></a>
 								</li>
@@ -87,10 +90,10 @@
 								    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
 								        <span class="tip_name hide" sh_lang="lte_apn"></span>
 								        <select class="form-control" id="select_5g_mode">
-								            <option value="0" sh_lang="internet_auto_mode"></option> 
-								            <option value="2" sh_lang="internet_lte_mode"></option>     
+								            <option value="0" sh_lang="internet_auto_mode"></option>
+								            <option value="2" sh_lang="internet_lte_mode"></option>
 								            <option value="3" sh_lang="internet_sa_mode"></option>
-											<option value="4" sh_lang="internet_nsa_mode"></option>  
+											<option value="4" sh_lang="internet_nsa_mode"></option>
 								        </select>
 								    </div>
 								</div>
@@ -103,7 +106,7 @@
 								        <select class="form-control" id="select_lte_id">
 								        </select>
 								    </div>
-								</div>	
+								</div>
                             </div>
                             <div class="row list">
                                 <div class="col-md-4 col-xs-8  col-xs-offset-2">
@@ -287,8 +290,8 @@
 		                                </div>
                             		</div>
                             	</div>
-                            	
-                            	
+
+
                             </div>
                         </div>
 						<!--pin_manage end-->
@@ -387,7 +390,42 @@
                             </div>
                         </div>
 						<!--status_info end-->
-						
+
+						<!--ca_info start-->
+                        <div id="wnd_ca_info" class="main-box-body hidden">
+                        	<div class="main-box-body clearfix">
+								<div class="main-box-header clearfix"></div>
+              					<div class="pull-right filter-block hidden-xs-head">
+                					<a class="btn btn-warning pull-right afterbtn" id="refresh_ca_info" onclick="refresh_ca_info()">
+                  						<i class="fa fa-trash-o fa-lg"></i>
+                  						<span sh_lang="global_refresh"></span>
+                					</a>
+              					</div>
+            				</div>
+            				<div class="main-box-body clearfix">
+                            	<div class="table-respon">
+                					<table class="table table-hover" id="table">
+                  						<thead>
+                  						<tr>
+                	    					<th class="text-center"><span sh_lang="ca_community_type"></span></th>
+                    						<th class="text-center"><span sh_lang="ca_state"></span></th>
+                	    					<th class="text-center"><span sh_lang="ca_band"></span></th>
+                    						<th class="text-center"><span sh_lang="ca_rsrp"></span></th>
+                    						<th class="text-center"><span sh_lang="ca_sinr"></span></th>
+                    						<th class="text-center"><span sh_lang="ca_rssi"></span></th>
+                    						<th class="text-center"><span sh_lang="ca_pcid"></span></th>
+                    						<th class="text-center"><span sh_lang="ca_rsrq"></span></th>
+                    						<th class="text-center"><span sh_lang="ca_bandwidth"></span></th>
+                    						<th class="text-center"><span sh_lang="ca_freq"></span></th>
+                  						</tr>
+                  						</thead>
+                  						<tbody id="ca_tbody_info"></tbody>
+                					</table>
+              					</div>
+              				</div>
+                        </div>
+						<!--ca_info end-->
+
 						<!--upgrade_info start-->
                         <div id="wnd_upgrade_info" class="main-box-body hidden">
                         	<div class="row list">
@@ -458,7 +496,7 @@
                                     <span sh_lang="mobile_filepath"></span>
                                 </div>
                                 <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                    <input class="form-control require isNONULL" maxlength="50"  id="mobile_filepath">
+                                    <input class="form-control require isNONULL" maxlength="255"  id="mobile_filepath">
                                 </div>
                             </div>
                             <div class="row list" id="upgrade">
@@ -488,7 +526,7 @@
 									</div>
 									<div class="modal-body" id="upgrade_result_body">
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
@@ -562,7 +600,7 @@
           </div>
           <div class="col-lg-13 col-sm-5 col-xs-7 form_right">
             <select class="form-control" id="lte_type">
-              <option value="0">NONE</option> 
+              <option value="0">NONE</option>
               <option value="1">PAP</option>
               <option value="2">CHAP</option>
 			  <option value="3">PAP/CHAP</option>

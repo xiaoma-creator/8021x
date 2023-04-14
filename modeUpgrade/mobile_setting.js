@@ -69,12 +69,14 @@ $("#tab_basic_set").click(function (){
 	$("#tab_li_band_lock").removeClass("active");
 	$("#tab_li_pin_manage").removeClass("active");
 	$("#tab_li_status_info").removeClass("active");
+	$("#tab_li_ca_info").removeClass("active");
 	$("#tab_li_upgrade_info").removeClass("active");
 
 	$("#wnd_basic_set").removeClass("hidden");
 	$("#wnd_band_lock").addClass("hidden");
 	$("#wnd_pin_manage").addClass("hidden");
 	$("#wnd_status_info").addClass("hidden");
+	$("#wnd_ca_info").addClass("hidden");
 	$("#wnd_upgrade_info").addClass("hidden");
 });
 
@@ -83,12 +85,14 @@ $("#tab_band_lock").click(function (){
 	$("#tab_li_basic_set").removeClass("active");
 	$("#tab_li_pin_manage").removeClass("active");
 	$("#tab_li_status_info").removeClass("active");
+	$("#tab_li_ca_info").removeClass("active");
 	$("#tab_li_upgrade_info").removeClass("active");
 
 	$("#wnd_band_lock").removeClass("hidden");
 	$("#wnd_basic_set").addClass("hidden");
 	$("#wnd_pin_manage").addClass("hidden");
 	$("#wnd_status_info").addClass("hidden");
+	$("#wnd_ca_info").addClass("hidden");
 	$("#wnd_upgrade_info").addClass("hidden");
 });
 
@@ -98,12 +102,14 @@ $("#tab_pin_manage").click(function (){
 	$("#tab_li_band_lock").removeClass("active");
 	$("#tab_li_basic_set").removeClass("active");
 	$("#tab_li_status_info").removeClass("active");
+	$("#tab_li_ca_info").removeClass("active");
 	$("#tab_li_upgrade_info").removeClass("active");
 
 	$("#wnd_pin_manage").removeClass("hidden");
 	$("#wnd_band_lock").addClass("hidden");
 	$("#wnd_basic_set").addClass("hidden");
 	$("#wnd_status_info").addClass("hidden");
+	$("#wnd_ca_info").addClass("hidden");
 	$("#wnd_upgrade_info").addClass("hidden");
 });
 
@@ -114,12 +120,32 @@ $("#tab_status_info").click(function (){
 	$("#tab_li_pin_manage").removeClass("active");
 	$("#tab_li_band_lock").removeClass("active");
 	$("#tab_li_basic_set").removeClass("active");
+	$("#tab_li_ca_info").removeClass("active");
 	$("#tab_li_upgrade_info").removeClass("active");
 
 	$("#wnd_status_info").removeClass("hidden");
 	$("#wnd_pin_manage").addClass("hidden");
 	$("#wnd_band_lock").addClass("hidden");
 	$("#wnd_basic_set").addClass("hidden");
+	$("#wnd_ca_info").addClass("hidden");
+	$("#wnd_upgrade_info").addClass("hidden");
+});
+
+$("#tab_ca_info").click(function (){
+	get_ca_info();
+
+	$("#tab_li_ca_info").addClass("active");
+	$("#tab_li_pin_manage").removeClass("active");
+	$("#tab_li_band_lock").removeClass("active");
+	$("#tab_li_basic_set").removeClass("active");
+	$("#tab_li_status_info").removeClass("active");
+	$("#tab_li_upgrade_info").removeClass("active");
+
+	$("#wnd_ca_info").removeClass("hidden");
+	$("#wnd_pin_manage").addClass("hidden");
+	$("#wnd_band_lock").addClass("hidden");
+	$("#wnd_basic_set").addClass("hidden");
+	$("#wnd_status_info").addClass("hidden");
 	$("#wnd_upgrade_info").addClass("hidden");
 });
 
@@ -134,12 +160,14 @@ $("#tab_upgrade_info").click(function (){
 	$("#tab_li_pin_manage").removeClass("active");
 	$("#tab_li_band_lock").removeClass("active");
 	$("#tab_li_basic_set").removeClass("active");
+	$("#tab_li_ca_info").removeClass("active");
 	$("#tab_li_status_info").removeClass("active");
 
 	$("#wnd_upgrade_info").removeClass("hidden");
 	$("#wnd_pin_manage").addClass("hidden");
 	$("#wnd_band_lock").addClass("hidden");
 	$("#wnd_basic_set").addClass("hidden");
+	$("#wnd_ca_info").addClass("hidden");
 	$("#wnd_status_info").addClass("hidden");
 });
 
@@ -433,6 +461,10 @@ function get_5g_basic_info() {
             {
                 $("#tab_li_pin_manage").addClass("hidden");
             }
+            if ("0" == data.caInfo_support)
+            {
+                $("#tab_li_ca_info").addClass("hidden");
+            }
             if ("0" == data.upgrade_support)
             {
                 $("#tab_li_upgrade_info").addClass("hidden");
@@ -442,11 +474,13 @@ function get_5g_basic_info() {
                 $("#tab_li_band_lock").addClass("active");
                 $("#tab_li_basic_set").removeClass("active");
                 $("#tab_li_pin_manage").removeClass("active");
+                $("#tab_li_ca_info").removeClass("active");
                 $("#tab_li_upgrade_info").removeClass("active");
 
                 $("#wnd_band_lock").removeClass("hidden");
                 $("#wnd_basic_set").addClass("hidden");
                 $("#wnd_pin_manage").addClass("hidden");
+                $("#wnd_ca_info").addClass("hidden");
                 $("#wnd_upgrade_info").addClass("hidden");
             }
             else if ("2" == data.pageset)
@@ -455,25 +489,44 @@ function get_5g_basic_info() {
                 $("#tab_li_pin_manage").addClass("active");
                 $("#tab_li_band_lock").removeClass("active");
                 $("#tab_li_basic_set").removeClass("active");
+                $("#tab_li_ca_info").removeClass("active");
                 $("#tab_li_upgrade_info").removeClass("active");
 
                 $("#wnd_pin_manage").removeClass("hidden");
                 $("#wnd_band_lock").addClass("hidden");
                 $("#wnd_basic_set").addClass("hidden");
+                $("#wnd_ca_info").addClass("hidden");
                 $("#wnd_upgrade_info").addClass("hidden");
             }
             else if ("3" == data.pageset)
+            {
+                get_ca_info();
+                $("#tab_li_ca_info").addClass("active");
+                $("#tab_li_upgrade_info").removeClass("active");
+                $("#tab_li_pin_manage").removeClass("active");
+                $("#tab_li_band_lock").removeClass("active");
+                $("#tab_li_basic_set").removeClass("active");
+
+                $("#wnd_ca_info").removeClass("hidden");
+                $("#wnd_upgrade_info").addClass("hidden");
+                $("#wnd_pin_manage").addClass("hidden");
+                $("#wnd_band_lock").addClass("hidden");
+                $("#wnd_basic_set").addClass("hidden");
+            }
+            else if ("4" == data.pageset)
             {
                 get_upgrade_setting();
                 $("#tab_li_upgrade_info").addClass("active");
                 $("#tab_li_pin_manage").removeClass("active");
                 $("#tab_li_band_lock").removeClass("active");
                 $("#tab_li_basic_set").removeClass("active");
+                $("#tab_li_ca_info").removeClass("active");
 
                 $("#wnd_upgrade_info").removeClass("hidden");
                 $("#wnd_pin_manage").addClass("hidden");
                 $("#wnd_band_lock").addClass("hidden");
                 $("#wnd_basic_set").addClass("hidden");
+                $("#wnd_ca_info").addClass("hidden");
             }
             else
             {
@@ -485,7 +538,7 @@ function get_5g_basic_info() {
 }
 
 function get_5g_methods(){
-    const url = "/goform/get_5g_methods" // 请求地址
+    const url = "/goform/get_5g_methods"; // 请求地址
     var cookies = getCookie("token");
     var list = '';
     var options = '<option value="-1">None</option>';
@@ -526,6 +579,169 @@ function get_5g_methods(){
             $("#select_lte_id").append(options);
         }
     })
+}
+
+function get_ca_info(){
+    const url = "/goform/get_ca_info"; // 请求地址
+    var cookies = getCookie("token");
+    var list = '';
+    $.ajax({
+        contentType: "appliation/json",
+        data: {token: cookies},
+        dataType: "json",
+        type: "POST",
+        cache: false,
+        async: false,
+        url: url,
+        success: function (data) {
+            var language = data.language;
+            data = data.data;
+            $("#ca_tbody_info").empty();
+            $.each(data, function (idx, item) {
+                list += '<tr class="text-center">';
+
+                if(item.community_type == "PCC")
+                {
+                    // 主小区
+                    if(language == "cn")
+                    {
+                        list += '<td class="community_type"> 主小区 </td>';
+
+                        // 主小区状态
+                        if(item.state == "1")
+                        {
+                            // 已注册
+                            list += '<td class="state"> 已注册 </td>';
+                        }
+                        else
+                        {
+                            list += '<td class="state"> 无服务 </td>';
+                        }
+                    }
+                    else
+                    {
+                        list += '<td class="community_type"> Primary </td>';
+
+                        // 主小区状态
+                        if(item.state == "1")
+                        {
+                            // 已注册
+                            list += '<td class="state"> Registered </td>';
+                        }
+                        else
+                        {
+                            list += '<td class="state"> No Service </td>';
+                        }
+                    }
+                }
+                else
+                {
+                    // 辅小区
+                    if(language == "cn")
+                    {
+                        list += '<td class="community_type"> 辅小区 </td>';
+
+                        // 辅小区状态
+                        if(item.state == "1")
+                        {
+                            list += '<td class="state"> 配置已去激活 </td>';
+                        }
+                        else if(item.state == "2")
+                        {
+                            list += '<td class="state"> 配置已激活 </td>';
+                        }
+                        else
+                        {
+                            list += '<td class="state"> 配置解除 </td>';
+                        }
+                    }
+                    else
+                    {
+                        list += '<td class="community_type"> Secondary </td>';
+
+                        // 辅小区状态
+                        if(item.state == "1")
+                        {
+                            list += '<td class="state"> Not Working </td>';
+                        }
+                        else if(item.state == "2")
+                        {
+                            list += '<td class="state"> Configuration Activated </td>';
+                        }
+                        else
+                        {
+                            list += '<td class="state"> Configuration Removed </td>';
+                        }
+                    }
+                }
+
+                // 下行频带信息
+                list += '<td class="band">' + item.band.trim() + '</td>';
+
+                // 信号接手功率
+                list += '<td class="rsrp">' + item.rsrp.trim() + '</td>';
+
+                // RSSNR对数值
+                list += '<td class="sinr">' + item.sinr.trim() + '</td>';
+
+                // 接收信号强度指示
+                list += '<td class="rssi">' + item.rssi.trim() + '</td>';
+
+                // 物理小区ID
+                list += '<td class="pcid">' + item.pcid.trim() + '</td>';
+
+                // 信号接收质量
+                list += '<td class="rsrq">' + item.rsrq.trim() + '</td>';
+
+                // 带宽
+                if(item.bandwidth == "6")
+                {
+                    list += '<td class="bandwidth"> 1.4MHz </td>';
+                }
+                else
+                {
+                    list += '<td class="bandwidth"> ' + parseInt(item.bandwidth) / 5 + 'MHz </td>';
+                }
+
+                // EARFCN
+                list += '<td class="freq">' + item.freq.trim() + '</td>';
+
+                list += '</tr>';
+            })
+            $("#ca_tbody_info").append(list);
+        }
+    })
+}
+
+function refresh_ca_info(){
+    const url = "/goform/refresh_ca_info"; // 请求地址
+    const enable = "1";
+    var cookies = getCookie("token");
+    console.log(format_volide_ok())
+    if (!format_volide_ok()) {
+        return;
+    }
+
+    var data = {
+        "token" : cookies,
+        "enable" : enable,
+    }
+
+    is_setting_status = 1;
+
+    $.post(url, data, function (data) {
+        // 根据返回结果处理
+        if (data.ret == 1) {
+            setting(20, gohref);
+        }else{
+            shconfirm(set_error, 'confirm', {
+                onOk: function () {
+                    return;
+                }
+            })
+            return;
+        }
+    });
 }
 
 function get_upgrade_setting() {
