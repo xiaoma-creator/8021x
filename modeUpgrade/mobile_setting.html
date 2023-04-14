@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title sh_lang="mobile_set"></title>
+    <link type="image/x-icon" href="/images/favicon.ico" rel="shortcut icon"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/fonts/allfonts.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/theme.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome-4.7.0/css/font-awesome.css" />
+    <script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<% getUciLanguage("lang");%>"></script>
+    <script type="text/javascript" src="/js/common.js"></script>
+</head>
+<body module="mobile_set" id="mbox_container">
+<div id="theme-wrapper">
+    <!-- header start -->
+    <div class="navbar" id="header-navbar">
+        <div class="container-fluid">
+            <span id="logo" class="navbar-brand">
+            </span>
+            <div class="clearfix">
+                <button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="nav-no-collapse pull-right" id="header-nav">
+					<!-- add by common.js -->
+				</div>
+            </div>
+        </div>
+    </div>
+    <!-- header end -->
+
+    <div id="page-wrapper" class="container-fluid">
+        <div id="nav-col">
+            <div id="col-left" class="col-left-nano">
+                <div id="col-left-inner" class="col-left-nano-content">
+                    <div class="collapse navbar-collapse navbar-ex1-collapse" id="sidebar-nav">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content-wrapper">
+            <div class="row">
+                <!--left content start-->
+                <div class="col-lg-12">
+                    <div class="main-box clearfix">
+                        <div class="main-box-header gray-bg">
+                            <h2 sh_lang="mobile_set"></h2>
+                        </div>
+                        <div>
+							<div id="tabMenu" class="submenuBlock"></div>
+							<ul class="nav nav-tabs" style="margin-bottom: 10px;">
+								<li id="tab_li_basic_set" class="active">
+									<a id="tab_basic_set" sh_lang="basic_set"></a>
+								</li>
+								<li id="tab_li_band_lock">
+									<a id="tab_band_lock" sh_lang="band_lock"></a>
+								</li>
+								<li id="tab_li_pin_manage">
+									<a id="tab_pin_manage" sh_lang="pin_manage"></a>
+								</li>
+								<li id="tab_li_status_info">
+									<a id="tab_status_info" sh_lang="status_info"></a>
+								</li>
+								<li id="tab_li_upgrade_info">
+									<a id="tab_upgrade_info" sh_lang="upgrade_info"></a>
+								</li>
+							</ul>
+					    </div>
+					    <!--bacic setting start-->
+                        <div id="wnd_basic_set" class="main-box-body">
+                            <div id="basic_set_details">
+								<div class="row list">
+								    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+								        <span sh_lang="mode_setting"></span>
+								    </div>
+								    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+								        <span class="tip_name hide" sh_lang="lte_apn"></span>
+								        <select class="form-control" id="select_5g_mode">
+								            <option value="0" sh_lang="internet_auto_mode"></option> 
+								            <option value="2" sh_lang="internet_lte_mode"></option>     
+								            <option value="3" sh_lang="internet_sa_mode"></option>
+											<option value="4" sh_lang="internet_nsa_mode"></option>  
+								        </select>
+								    </div>
+								</div>
+								<div class="row list">
+								    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+								        <span sh_lang="lte_name"></span>
+								    </div>
+								    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+								        <span class="tip_name hide" sh_lang="lte_name"></span>
+								        <select class="form-control" id="select_lte_id">
+								        </select>
+								    </div>
+								</div>	
+                            </div>
+                            <div class="row list">
+                                <div class="col-md-4 col-xs-8  col-xs-offset-2">
+                                    <div class="row text-center">
+                                        <button type="button" id="saveConfig" class="btn btn-warning mrg-b-lg col-lg-2 col-md-3 col-xs-5 col-lg-offset-2 col-md-offset-1" et="click tap:saveConfig" sh_lang="global_setting"></button>
+                                        <button type="button" id="resetConfig" sh_lang="global_resetting" class="btn btn-default mrg-b-lg col-lg-2 col-md-3 col-xs-5 col-lg-offset-4 col-md-offset-2 col-xs-offset-2" et="click tap:doResetConfig"></button>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="main-box tab-pane active" style="margin-top: 20px;">
+                            <div class="main-box-body clearfix">
+								<div class="main-box-header clearfix"></div>
+              					<div class="pull-right filter-block hidden-xs-head">
+                					<a class="btn btn-warning beforebtn" id="add_list" onclick="addlist()" data-toggle="modal" data-target="#modal_one">
+                  						<i class="fa fa-plus-circle fa-lg"></i>
+                  						<span sh_lang="global_add"></span>
+                					</a>
+                					<a class="btn btn-warning pull-right afterbtn" id="del_select" onclick="delselect()">
+                  						<i class="fa fa-trash-o fa-lg"></i>
+                  						<span sh_lang="global_delete"></span>
+                					</a>
+              					</div>
+            				</div>
+            				<div class="main-box-body clearfix">
+                            	<div class="table-respon">
+                					<table class="table table-hover" id="table">
+                  						<thead>
+                  						<tr>
+                    						<th class="text-center" style="width:10%">
+	                      						<input class="hide" id="allchecked" type="checkbox" et="click tap:selectall" data-value="0"/>
+    	                  						<label class="label label-info" et="click tap:selectall" id="select_laber" sh_lang="global_selectall"></label>
+        	            					</th>
+                	    					<th class="text-center"><span sh_lang="lte_name"></span></th>
+                	    					<th class="text-center"><span sh_lang="lte_apn"></span></th>
+                    						<th class="text-center"><span sh_lang="lte_username"></span></th>
+                    						<th class="text-center hidden"><span sh_lang="lte_passwd"></span></th>
+                    						<th class="text-center"><span sh_lang="lte_type"></span></th>
+                    						<th class="text-center" style="width:8%"><span sh_lang="global_operate"></span></th>
+                  						</tr>
+                  						</thead>
+                  						<tbody id="tbody_info"></tbody>
+                					</table>
+              					</div>
+              				</div>
+              				</div>
+                        </div>
+						<!--bacic setting end-->
+
+						<!--band_lock start-->
+                        <div id="wnd_band_lock" class="main-box-body hidden">
+                            <div>
+                            	<div class="row list" id="band_list">
+                            	</div>
+                            </div>
+                            <div class="row list">
+                                <div class="col-md-4 col-xs-8  col-xs-offset-2">
+                                    <div class="row text-center">
+                                        <button type="button" id="bandlockConfig" class="btn btn-warning mrg-b-lg col-lg-2 col-md-3 col-xs-5 col-lg-offset-2 col-md-offset-1" et="click tap:bandlocksaveConfig" sh_lang="global_setting"></button>
+                                        <button type="button" id="bandlockresetConfig" sh_lang="global_resetting" class="btn btn-default mrg-b-lg col-lg-2 col-md-3 col-xs-5 col-lg-offset-4 col-md-offset-2 col-xs-offset-2" et="click tap:doResetConfig"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						<!--band_lock end-->
+
+						<!--pin_manage start-->
+                        <div id="wnd_pin_manage" class="main-box-body hidden">
+                            <div>
+                            	<div class="row list">
+									<div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+										<span sh_lang="pin_puk_num" style="font-size: 20px; font-weight:800;"></span>
+									</div>
+								</div>
+                            	<div class="row list">
+									<div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+										<span sh_lang="pin_num"></span>
+                                        <span sh_lang="colon"></span>
+									</div>
+									<div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+										<span id="pin_num"></span>
+									</div>
+								</div>
+								<div class="row list">
+									<div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+										<span sh_lang="puk_num"></span>
+                                        <span sh_lang="colon"></span>
+									</div>
+									<div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+										<span id="puk_num"></span>
+									</div>
+								</div>
+								<div id="div_pin_cfg" class="main-box-body">
+									<div class="row list">
+										<div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+											<span id="pin_lock" sh_lang="pin_unlock" style="font-size: 20px; font-weight:800;"></span>
+										</div>
+									</div>
+									<div class="row list">
+										<div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+											<span sh_lang="pin_input"></span>
+										</div>
+										<div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+											<span class="tip_name hide" sh_lang="pin_input_tip"></span>
+											<input type="text" class="form-control require isNumLen" name="_@4" id="pin_input" value="" maxlength="4">
+											<p sh_lang="pin_input_tip"></p>
+										</div>
+									</div>
+									<div id="div_puk_input" class="row list">
+										<div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+											<span sh_lang="puk_input"></span>
+										</div>
+										<div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+											<span class="tip_name hide" sh_lang="puk_input_tip"></span>
+											<input type="text" class="form-control require isNumLen" name="_@8" id="puk_input" value="" maxlength="8">
+											<p sh_lang="puk_input_tip"></p>
+										</div>
+									</div>
+									<div class="row list">
+		                                <div class="col-md-4 col-xs-8  col-xs-offset-2">
+		                                    <div class="row text-center">
+		                                        <button type="button" id="pinManageConfig" class="btn btn-warning mrg-b-lg col-lg-2 col-md-3 col-xs-5 col-lg-offset-5 col-md-offset-8" et="click tap:pinManageConfig" sh_lang="pin_unlock"></button>
+		                                    </div>
+		                                </div>
+	                            	</div>
+	                            </div>
+                            	<div id="div_pin_close" class="main-box-body">
+	                            	<div class="row list">
+										<div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+											<span sh_lang="pin_close" style="font-size: 20px; font-weight:800;"></span>
+										</div>
+									</div>
+									<div class="row list">
+										<div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+											<span sh_lang="pin_input"></span>
+										</div>
+										<div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+											<span class="tip_name hide" sh_lang="pin_input_tip"></span>
+											<input type="text" class="form-control require isNumLen" name="_@4" id="pin_close_input" value="" maxlength="4">
+											<p sh_lang="pin_input_tip"></p>
+										</div>
+									</div>
+									<div class="row list">
+		                                <div class="col-md-4 col-xs-8  col-xs-offset-2">
+		                                    <div class="row text-center">
+		                                        <button type="button" id="pinCloseConfig" class="btn btn-warning mrg-b-lg col-lg-2 col-md-3 col-xs-5 col-lg-offset-5 col-md-offset-8" et="click tap:pinCloseConfig" sh_lang="pin_close"></button>
+		                                    </div>
+		                                </div>
+                            		</div>
+                            	</div>
+                            	<div id="div_pin_modify" class="main-box-body">
+	                            	<div class="row list">
+										<div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+											<span sh_lang="pin_modify" style="font-size: 20px; font-weight:800;"></span>
+										</div>
+									</div>
+									<div class="row list">
+										<div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+											<span sh_lang="pin_input"></span>
+										</div>
+										<div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+											<span class="tip_name hide" sh_lang="pin_input_tip"></span>
+											<input type="text" class="form-control require isNumLen" name="_@4" id="pin_modify_input" value="" maxlength="4">
+											<p sh_lang="pin_input_tip"></p>
+										</div>
+									</div>
+									<div class="row list">
+										<div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+											<span sh_lang="pin_input_new"></span>
+										</div>
+										<div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+											<span class="tip_name hide" sh_lang="pin_input_tip"></span>
+											<input type="text" class="form-control require isNumLen" name="_@4" id="pin_modify_input_new" value="" maxlength="4">
+											<p sh_lang="pin_input_tip"></p>
+										</div>
+									</div>
+									<div class="row list">
+		                                <div class="col-md-4 col-xs-8  col-xs-offset-2">
+		                                    <div class="row text-center">
+		                                        <button type="button" id="pinModifyConfig" class="btn btn-warning mrg-b-lg col-lg-2 col-md-3 col-xs-5 col-lg-offset-5 col-md-offset-8" et="click tap:pinModifyConfig" sh_lang="pin_modify"></button>
+		                                    </div>
+		                                </div>
+                            		</div>
+                            	</div>
+                            	
+                            	
+                            </div>
+                        </div>
+						<!--pin_manage end-->
+
+						<!--status_info start-->
+                        <div id="wnd_status_info" class="main-box-body hidden">
+                             <div class="row list">
+                                <div class="col-lg-6 col-xs-6 form_left text-right">
+                                    <span sh_lang="model_imei"></span>
+                                    <span sh_lang="colon"></span>
+                                </div>
+                                <div class="col-lg-6 col-xs-6 form_text text-left">
+                                    <span id="model_imei"></span>
+                                </div>
+                            </div>
+                            <div class="row list">
+                                <div class="col-lg-6 col-xs-6 form_left text-right">
+                                    <span sh_lang="model_mcc"></span>
+                                    <span sh_lang="colon"></span>
+                                </div>
+                                <div class="col-lg-6 col-xs-6 form_text text-left">
+                                    <span id="model_mcc"></span>
+                                </div>
+                            </div>
+                            <div class="row list">
+                                <div class="col-lg-6 col-xs-6 form_left text-right">
+                                    <span sh_lang="model_mnc"></span>
+                                    <span sh_lang="colon"></span>
+                                </div>
+                                <div class="col-lg-6 col-xs-6 form_text text-left">
+                                    <span id="model_mnc"></span>
+                                </div>
+                            </div>
+                            <div class="row list">
+                                <div class="col-lg-6 col-xs-6 form_left text-right">
+                                    <span sh_lang="model_cell"></span>
+                                    <span sh_lang="colon"></span>
+                                </div>
+                                <div class="col-lg-6 col-xs-6 form_text text-left">
+                                    <span id="model_cell"></span>
+                                </div>
+                            </div>
+                            <div class="row list">
+                                <div class="col-lg-6 col-xs-6 form_left text-right">
+                                    <span sh_lang="model_pci"></span>
+                                    <span sh_lang="colon"></span>
+                                </div>
+                                <div class="col-lg-6 col-xs-6 form_text text-left">
+                                    <span id="model_pci"></span>
+                                </div>
+                            </div>
+                            <div class="row list">
+                                <div class="col-lg-6 col-xs-6 form_left text-right">
+                                    <span sh_lang="model_band"></span>
+                                    <span sh_lang="colon"></span>
+                                </div>
+                                <div class="col-lg-6 col-xs-6 form_text text-left">
+                                    <span id="model_band"></span>
+                                </div>
+                            </div>
+                            <div class="row list">
+                                <div class="col-lg-6 col-xs-6 form_left text-right">
+                                    <span sh_lang="model_rssi"></span>
+                                    <span sh_lang="colon"></span>
+                                </div>
+                                <div class="col-lg-6 col-xs-6 form_text text-left">
+                                    <span id="model_rssi"></span>
+                                </div>
+                            </div>
+                            <div class="row list">
+                                <div class="col-lg-6 col-xs-6 form_left text-right">
+                                    <span sh_lang="model_rsrp"></span>
+                                    <span sh_lang="colon"></span>
+                                </div>
+                                <div class="col-lg-6 col-xs-6 form_text text-left">
+                                    <span id="model_rsrp"></span>
+                                </div>
+                            </div>
+                            <div class="row list">
+                                <div class="col-lg-6 col-xs-6 form_left text-right">
+                                    <span sh_lang="model_rsrq"></span>
+                                    <span sh_lang="colon"></span>
+                                </div>
+                                <div class="col-lg-6 col-xs-6 form_text text-left">
+                                    <span id="model_rsrq"></span>
+                                </div>
+                            </div>
+                            <div class="row list">
+                                <div class="col-lg-6 col-xs-6 form_left text-right">
+                                    <span sh_lang="model_sinr"></span>
+                                    <span sh_lang="colon"></span>
+                                </div>
+                                <div class="col-lg-6 col-xs-6 form_text text-left">
+                                    <span id="model_sinr"></span>
+                                </div>
+                            </div>
+                        </div>
+						<!--status_info end-->
+						
+						<!--upgrade_info start-->
+                        <div id="wnd_upgrade_info" class="main-box-body hidden">
+                        	<div class="row list">
+                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                    <span sh_lang="model_version"></span>
+                                </div>
+                                <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                    <span id="version" style="color:#2980B9"></span>
+                                </div>
+                            </div>
+                            <div class="row list">
+                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                    <span sh_lang="upgrade_method"></span>
+                                </div>
+                                <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                    <select class="form-control" id="upgrade_method">
+                                        <option value="0">dfota</option>
+                                        <option value="1">local</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row list" id="server_type_row">
+                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                    <span sh_lang="upgrade_server_type"></span>
+                                </div>
+                                <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                    <select class="form-control" id="upgrade_server_type">
+                                        <option value="0">FTP</option>
+                                        <option value="1">HTTP</option>
+                                        <!--<option value="2">HTTPS</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row list" id="username_row">
+                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                    <span sh_lang="mobile_username"></span>
+                                </div>
+                                <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                    <input class="form-control require isNONULL" maxlength="50" id="mobile_username">
+                                </div>
+                            </div>
+                            <div class="row list" id="password_row">
+                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                    <span sh_lang="mobile_password"></span>
+                                </div>
+                                <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                    <input class="form-control require isNONULL" maxlength="50" id="mobile_password">
+                                </div>
+                            </div>
+                            <div class="row list" id="serverurl_row">
+                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                    <span sh_lang="mobile_serverurl"></span>
+                                </div>
+                                <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                    <input class="form-control require isIP" id="mobile_serverurl">
+                                </div>
+                            </div>
+                            <div class="row list" id="port_row">
+                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                    <span sh_lang="mobile_port"></span>
+                                </div>
+                                <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                    <input class="form-control require isNUM isPort" name="_@1_65535" id="mobile_port">
+                                </div>
+                            </div>
+                            <div class="row list" id="filepath_row">
+                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                    <span sh_lang="mobile_filepath"></span>
+                                </div>
+                                <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                    <input class="form-control require isNONULL" maxlength="50"  id="mobile_filepath">
+                                </div>
+                            </div>
+                            <div class="row list" id="upgrade">
+                               <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                   <span sh_lang="upload_file_select"></span>
+                               </div>
+                               <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                   <button class="form-selet" maxlength="90" id="select_file" sh_lang="upload_file_select" onclick="select_file()">
+                               </div>
+                            </div>
+                            <div class="row list">
+                                <div class="col-md-4 col-xs-8  col-xs-offset-2">
+                                    <div class="row text-center">
+                                        <button type="button" id="saveUpgradeConfig" class="btn btn-warning mrg-b-lg col-lg-2 col-md-3 col-xs-5 col-lg-offset-2 col-md-offset-1" sh_lang="upload_header"></button>
+                                        <button type="button" id="resetUpgradeConfig" sh_lang="global_resetting" class="btn btn-default mrg-b-lg col-lg-2 col-md-3 col-xs-5 col-lg-offset-4 col-md-offset-2 col-xs-offset-2"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+						<!--upgrade_info end-->
+						<!--upgrade result start-->
+						<div class="modal fade" id="upgrade_result_box" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+							<div class="modal-dialog">
+    							<div class="modal-content">
+    								<div class="modal-header">
+    									<h4 class="modal-title" sh_lang="upgrading">Upgrading</h4>
+									</div>
+									<div class="modal-body" id="upgrade_result_body">
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						<!--upgrade result end-->
+                    </div>
+                </div>
+                <!--left content end-->
+            </div>
+            <div class="row">
+                <div id="footer-bar" style="opacity: 1;">
+                    <p id="footer-copyright" class="col-xs-12" sh_lang="copyright"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_one" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="mobile_setting_header">Mobile Setting</h4>
+      </div>
+      <div class="modal-body" id="modal_body">
+        <div class="row list">
+          <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+            <span sh_lang="lte_name"></span>
+          </div>
+          <div class="col-lg-13 col-sm-5 col-xs-7 form_right">
+            <input type="text" style="display:none" id="lte_id">
+            <input type="text" class="form-control require isALL" maxlength="32" id="lte_name">
+          </div>
+        </div>
+        <div class="row list">
+          <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+            <span sh_lang="lte_apn"></span>
+          </div>
+          <div class="col-lg-13 col-sm-5 col-xs-7 form_right">
+			<span class="tip_name hide" sh_lang="lte_apn"></span>
+			<input type="text" class="form-control require isNULL isHostname" id="lte_apn" value="" maxlength="99">
+			<p sh_lang="lte_apn_tip"></p>
+          </div>
+        </div>
+        <div class="row list">
+          <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+            <span sh_lang="lte_username"></span>
+          </div>
+          <div class="col-lg-13 col-sm-5 col-xs-7 form_right">
+            <span class="tip_name hide" sh_lang="lte_username"></span>
+            <input type="text" class="form-control require isNULL isHostname" id="lte_username" value="" maxlength="63">
+            <p sh_lang="lte_username_tip"></p>
+          </div>
+        </div>
+        <div class="row list">
+          <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+            <span sh_lang="lte_passwd"></span>
+          </div>
+          <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+            <span class="tip_name hide" sh_lang="lte_passwd"></span>
+            <input type="password" class="form-control require isNULL isHostname" id="lte_passwd" value="" maxlength="63">
+            <p sh_lang="lte_password_tip"></p>
+          </div>
+          <div class="col-lg-17 col-sm-1 col-xs-1 form_right" >
+            <i class="5g_passwd_show fa fa-eye-slash" style="margin-left:2%"  onclick="show_5g_passwd_click();"></i>
+          </div>
+        </div>
+        <div class="row list">
+          <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+            <span sh_lang="lte_type"></span>
+          </div>
+          <div class="col-lg-13 col-sm-5 col-xs-7 form_right">
+            <select class="form-control" id="lte_type">
+              <option value="0">NONE</option> 
+              <option value="1">PAP</option>
+              <option value="2">CHAP</option>
+			  <option value="3">PAP/CHAP</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row list">
+        <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right"></div>
+        <div class="form_right"> </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default closewin hide" data-dismiss="modal"></button>
+        <button type="button" class="btn btn-warning" id="savemethod" sh_lang="global_save"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal_select_file" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="close_select()">&times;</button>
+        <h4 class="modal-title" id="select_file_header">Select File</h4>
+      </div>
+      <div class="modal-body" id="modal_body">
+        <div class="row list table-respon col-xs-12 col-md-10 col-lg-8 col-xs-offset-0 col-lg-offset-2 col-md-offset-1">
+          <div id="fileName" style="display:none"></div>
+          <div id="fileSize" style="display:none"></div>
+          <div id="fileType" style="display:none"></div>
+          <table class="table table-hover">
+            <thead></thead>
+            <tbody id="usb_tab">
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row list">
+        <div class="col-md-4 col-xs-8  col-xs-offset-2">
+          <div class="row text-right">
+            <p></p>
+            <button type="button" class="btn btn-warning" id="select_save" sh_lang="global_sure" onclick="save_select()"></button>
+            <button type="button" class="btn btn-warning" id="select_cancel" sh_lang="global_cancel" onclick="close_select()"></button>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="set_tips"></div>
+<script type="text/javascript" src="/js/mobile_setting.js"></script>
+</body>
+</html>
