@@ -744,6 +744,71 @@ function refresh_ca_info(){
     });
 }
 
+$("#btn_check_upgrade").click(function () {
+    var cookies = getCookie("token");
+
+    is_setting_status = 1;
+    $("#loadings_div2").removeClass("hide");
+    $("#online_loading_pic").removeClass("hide");
+
+    $.ajax({
+        contentType: "appliation/json",
+        data: {token: cookies},
+        dataType: "json",
+        type: "POST",
+        cache: false,
+        async: true,
+        url: "/goform/mobile_check_upgrade",
+        success: function (data) {
+            $("#online_loading_pic").addClass("hide");
+            $("#loadings_div2").addClass("hide");
+            if (data.ret == 1) {
+                var version = data.version;
+                var size = data.size;
+                var message = g_version + ': ' + version + '\n' + g_size + ': ' + size + '\n' + confirm_upgrade + ' ?';
+                shconfirm(message, 'upgrade', {
+                    onOk: function () {
+                        var cookies = getCookie("token");
+
+                        // $.ajax({
+                        //     contentType: "appliation/json",
+                        //     data: {token: cookies},
+                        //     dataType: "json",
+                        //     type: "POST",
+                        //     cache: false,
+                        //     async: true,
+                        //     url: "/goform/online_upgrade",
+                        //     beforeSend: function () {
+                        //         $("#loadings_div").removeClass("hide");
+                        //     },
+                        //     success: function (data) {
+                        //         if (data.ret == 0) {
+                        //             $("#loading_pic").addClass("hide");
+                        //             $("#backdrop_div").addClass("hide");
+                        //             setting(300, gohref_upgrade);
+                        //         }
+                        //         else{
+                        //             shconfirm(fw_error, "error", {
+                        //                 onOk:function () {
+                        //                     $("#loading_pic").addClass("hide");
+                        //                     $("#backdrop_div").addClass("hide");
+                        //                     gohref();
+                        //                 }
+                        //             })
+                        //         }
+                        //     }
+                        // })
+                    }
+                });
+            }
+            else{
+                shconfirm(is_latest_version, "success", {
+                })
+            }
+        }
+    })
+
+});
 function get_upgrade_setting() {
     var cookies = getCookie("token");
     $.ajax({
@@ -755,6 +820,7 @@ function get_upgrade_setting() {
         async: false,
         url: "/goform/get_upgrade_setting",
         success: function (data) {
+            // data.method = 1;
             $("#version").text(data.version);
             $("#upgrade_method").val(data.method);
             $("#upgrade_server_type").val(data.server_type);
@@ -1334,7 +1400,7 @@ function get_band_lock_info() {
         url: "/goform/get_band_lock_info",
         success: function (data) {
         	$("#band_list").html("");
-			display_band_list(band_lock_lte_tdd, "B", data.def.szLteTdd, data.cur.szLteTdd);		
+			display_band_list(band_lock_lte_tdd, "B", data.def.szLteTdd, data.cur.szLteTdd);
 			display_band_list(band_lock_lte_fdd, "B", data.def.szLteFdd, data.cur.szLteFdd);
 			if ("0" == data.def.nsa_support)
 			{
@@ -1507,7 +1573,7 @@ function get_pin_manage_info() {
 				$("#pin_lock").text(pin_enable);
 				$("#pinManageConfig").html(pin_enable);
 			}
-			
+
 			if ("0" != data.pinOp)
 			{
 				shconfirm(pin_cfg_error, 'confirm', {

@@ -18,6 +18,15 @@
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<% getUciLanguage("lang");%>"></script>
     <script type="text/javascript" src="/js/common.js"></script>
+    <style>
+        .margin-bottom-20px{
+            margin-bottom: 20px;
+        }
+
+        .margin-top-20px{
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body module="mobile_set" id="mbox_container">
 <div id="theme-wrapper">
@@ -428,13 +437,37 @@
 
 						<!--upgrade_info start-->
                         <div id="wnd_upgrade_info" class="main-box-body hidden">
-                        	<div class="row list">
+                        	<div class="row list margin-top-20px margin-bottom-20px">
                                 <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
                                     <span sh_lang="model_version"></span>
                                 </div>
                                 <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
                                     <span id="version" style="color:#2980B9"></span>
                                 </div>
+                            </div>
+                            <!-- 在线升级 -->
+                            <div class="main-box" style="border: none;box-shadow: none;">
+                                <div class="main-box-header gray-bg">
+                                    <h2 sh_lang="upgrade_online"></h2>
+                                </div>
+                                <div class="main-box-main-box-body">
+                                    <div class="row list">
+                                        <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right"></div>
+                                        <div class="col-lg-3 col-sm-4 col-xs-7 form_right hide" id="online_loading_pic"><img
+                                            src="/images/loadings.gif" /></div>
+                                    </div>
+                                    <div class="row list" >
+                                        <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right"></div>
+                                        <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                            <button class="btn btn-primary" sh_lang="check_upgrade" id="btn_check_upgrade"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 本地升级 -->
+                            <div class="main-box-header gray-bg" >
+                                    <h2 sh_lang="upgrade_local"></h2>
                             </div>
                             <div class="row list">
                                 <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
@@ -655,6 +688,12 @@
 </div>
 
 <div class="set_tips"></div>
+
+<div class="loading hide" id="loadings_div2">
+        <div class="loading-backdrop" style="background: none;" id="backdrop_div2"></div>
+        <div class="loadcont">
+</div>
+
 <script type="text/javascript" src="/js/mobile_setting.js"></script>
 </body>
 </html>
