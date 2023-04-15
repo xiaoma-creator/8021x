@@ -762,10 +762,10 @@ $("#btn_check_upgrade").click(function () {
         success: function (data) {
             $("#online_loading_pic").addClass("hide");
             $("#loadings_div2").addClass("hide");
+            get_upgrade_setting();
             if (data.ret == 1) {
                 var version = data.version;
-                var size = data.size;
-                var message = g_version + ': ' + version + '\n' + g_size + ': ' + size + '\n' + confirm_upgrade + ' ?';
+                var message = g_version + ': ' + version + '\n' + confirm_upgrade + ' ?';
                 shconfirm(message, 'upgrade', {
                     onOk: function () {
                         var cookies = getCookie("token");
@@ -820,7 +820,6 @@ function get_upgrade_setting() {
         async: false,
         url: "/goform/get_upgrade_setting",
         success: function (data) {
-            // data.method = 1;
             $("#version").text(data.version);
             $("#upgrade_method").val(data.method);
             $("#upgrade_server_type").val(data.server_type);
