@@ -22,6 +22,7 @@ $(document).ready(function () {
     })
 
     $("#saveUpgradeConfig").click(function () {
+        $("#upgrade_method").val("1"); //本地升级
         set_upgrade_setting();
     });
 
@@ -748,6 +749,7 @@ $("#btn_check_upgrade").click(function () {
     var cookies = getCookie("token");
 
     is_setting_status = 1;
+    $("#loadings_div2").addClass("loading");
     $("#loadings_div2").removeClass("hide");
     $("#online_loading_pic").removeClass("hide");
 
@@ -762,42 +764,15 @@ $("#btn_check_upgrade").click(function () {
         success: function (data) {
             $("#online_loading_pic").addClass("hide");
             $("#loadings_div2").addClass("hide");
+            $("#loadings_div2").removeClass("loading");
             get_upgrade_setting();
             if (data.ret == 1) {
                 var version = data.version;
                 var message = g_version + ': ' + version + '\n' + confirm_upgrade + ' ?';
                 shconfirm(message, 'upgrade', {
                     onOk: function () {
-                        var cookies = getCookie("token");
-
-                        // $.ajax({
-                        //     contentType: "appliation/json",
-                        //     data: {token: cookies},
-                        //     dataType: "json",
-                        //     type: "POST",
-                        //     cache: false,
-                        //     async: true,
-                        //     url: "/goform/online_upgrade",
-                        //     beforeSend: function () {
-                        //         $("#loadings_div").removeClass("hide");
-                        //     },
-                        //     success: function (data) {
-                        //         if (data.ret == 0) {
-                        //             $("#loading_pic").addClass("hide");
-                        //             $("#backdrop_div").addClass("hide");
-                        //             setting(300, gohref_upgrade);
-                        //         }
-                        //         else{
-                        //             shconfirm(fw_error, "error", {
-                        //                 onOk:function () {
-                        //                     $("#loading_pic").addClass("hide");
-                        //                     $("#backdrop_div").addClass("hide");
-                        //                     gohref();
-                        //                 }
-                        //             })
-                        //         }
-                        //     }
-                        // })
+                        $("#upgrade_method").val("0"); //在线升级
+                        set_upgrade_setting();
                     }
                 });
             }
@@ -831,37 +806,37 @@ function get_upgrade_setting() {
 
             if(data.method == "1")
             {
-                $("#server_type_row").hide();
-                $("#username_row").hide();
-                $("#password_row").hide();
-                $("#serverurl_row").hide();
-                $("#port_row").hide();
-                $("#filepath_row").hide();
+                // $("#server_type_row").hide();
+                // $("#username_row").hide();
+                // $("#password_row").hide();
+                // $("#serverurl_row").hide();
+                // $("#port_row").hide();
+                // $("#filepath_row").hide();
 
-                $("#upgrade").show();
+                // $("#upgrade").show();
             }
             else
             {
-                $("#server_type_row").show();
+                // $("#server_type_row").show();
 
-                if(data.server_type == "0")
-                {
-                    $("#username_row").show();
-                    $("#password_row").show();
-                    $("#serverurl_row").show();
-                    $("#port_row").show();
-                    $("#filepath_row").show();
-                }
-                else
-                {
-                    $("#username_row").hide();
-                    $("#password_row").hide();
-                    $("#serverurl_row").show();
-                    $("#port_row").show();
-                    $("#filepath_row").show();
-                }
+                // if(data.server_type == "0")
+                // {
+                //     $("#username_row").show();
+                //     $("#password_row").show();
+                //     $("#serverurl_row").show();
+                //     $("#port_row").show();
+                //     $("#filepath_row").show();
+                // }
+                // else
+                // {
+                //     $("#username_row").hide();
+                //     $("#password_row").hide();
+                //     $("#serverurl_row").show();
+                //     $("#port_row").show();
+                //     $("#filepath_row").show();
+                // }
 
-                $("#upgrade").hide();
+                // $("#upgrade").hide();
             }
         }
     })

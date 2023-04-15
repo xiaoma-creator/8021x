@@ -469,7 +469,7 @@
                             <div class="main-box-header gray-bg" >
                                     <h2 sh_lang="upgrade_local"></h2>
                             </div>
-                            <div class="row list">
+                            <div class="row list hide">
                                 <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
                                     <span sh_lang="upgrade_method"></span>
                                 </div>
@@ -480,7 +480,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="row list" id="server_type_row">
+                            <div class="row list hide" id="server_type_row">
                                 <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
                                     <span sh_lang="upgrade_server_type"></span>
                                 </div>
@@ -492,7 +492,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="row list" id="username_row">
+                            <div class="row list hide" id="username_row">
                                 <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
                                     <span sh_lang="mobile_username"></span>
                                 </div>
@@ -500,7 +500,7 @@
                                     <input class="form-control require isNONULL" maxlength="50" id="mobile_username">
                                 </div>
                             </div>
-                            <div class="row list" id="password_row">
+                            <div class="row list hide" id="password_row">
                                 <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
                                     <span sh_lang="mobile_password"></span>
                                 </div>
@@ -508,7 +508,7 @@
                                     <input class="form-control require isNONULL" maxlength="50" id="mobile_password">
                                 </div>
                             </div>
-                            <div class="row list" id="serverurl_row">
+                            <div class="row list hide" id="serverurl_row">
                                 <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
                                     <span sh_lang="mobile_serverurl"></span>
                                 </div>
@@ -516,7 +516,7 @@
                                     <input class="form-control require isIP" id="mobile_serverurl">
                                 </div>
                             </div>
-                            <div class="row list" id="port_row">
+                            <div class="row list hide" id="port_row">
                                 <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
                                     <span sh_lang="mobile_port"></span>
                                 </div>
@@ -524,15 +524,15 @@
                                     <input class="form-control require isNUM isPort" name="_@1_65535" id="mobile_port">
                                 </div>
                             </div>
-                            <div class="row list" id="filepath_row">
+                            <div class="row list hide" id="filepath_row">
                                 <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
                                     <span sh_lang="mobile_filepath"></span>
                                 </div>
                                 <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                    <input class="form-control require isNONULL" maxlength="255"  id="mobile_filepath">
+                                    <input class="form-control require isNONULL" id="mobile_filepath">
                                 </div>
                             </div>
-                            <div class="row list" id="upgrade">
+                            <div class="row list" id="upgrade" style="margin-top: 40px; margin-bottom: 40px;">
                                <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
                                    <span sh_lang="upload_file_select"></span>
                                </div>
@@ -687,12 +687,13 @@
   </div>
 </div>
 
-<div class="set_tips"></div>
-
-<div class="loading hide" id="loadings_div2">
+<div class="hide" id="loadings_div2">
         <div class="loading-backdrop" style="background: none;" id="backdrop_div2"></div>
         <div class="loadcont">
 </div>
+
+<div class="set_tips"></div>
+
 
 <script type="text/javascript" src="/js/mobile_setting.js"></script>
 </body>
