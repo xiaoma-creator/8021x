@@ -217,12 +217,9 @@ $(document).ready(function () {
                 var form = document.forms.namedItem("upgrade");
                 var formData = new FormData(form);
                 var cookies = getCookie("token");
-                var file = $("#fileToUpload").val();
-                var filename = getFileName(file);
 
-                formData.append("filename", filename);
                 formData.append("token", cookies);
-                console.log(formData);
+
                 $.ajax({
                     url: "goform/upload_CA_file",
                     type: "post",
