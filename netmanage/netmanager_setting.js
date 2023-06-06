@@ -228,15 +228,18 @@ $(document).ready(function () {
                     processData: false,
                     success: function (data) {
                         if (data.ret == 1) {
-                            console.log("ok!");
+                            shconfirm(success, 'success', {
+                                onOK: function () {
+                                    return;
+                                }
+                            })
                         } else {
-                            // shconfirm(samba_error8, 'confirm', {
-                            //     onOK: function () {
-                            //         return;
-                            //     }
-                            // })
-                            // return false;
-                            console.log("error!");
+                            shconfirm(import_fail, 'error', {
+                                onOK: function () {
+                                    return;
+                                }
+                            })
+                            return false;
                         }
                     }
                 });

@@ -1286,6 +1286,8 @@ var ACS_auth = 'ACS Authentication';
 var CPE_auth = 'CPE Authentication';
 var inform_interval = 'Inform Interval';
 var import_certificate = 'Import Certificate';
+var success = 'Success';
+var import_fail = 'Import fail';
 
 /* host server */
 var host_server_header = 'Remote Server Settings';

@@ -1328,6 +1328,8 @@ var ACS_auth = 'ACS 认证';
 var CPE_auth = 'CPE 认证';
 var inform_interval = '上报周期';
 var import_certificate = '导入证书';
+var success = '成功';
+var import_fail = '上传失败';
 
 /* host server */
 var host_server_header = '远程服务器设置';
