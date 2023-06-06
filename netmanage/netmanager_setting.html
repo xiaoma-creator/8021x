@@ -74,103 +74,111 @@
                             			<br>
                             		</div>
                         		</div>
-                                <div id="netmanager_details">
-                                <div class="row list">
-                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                        <span sh_lang="global_status"></span>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                        <span class="form-contro" id="connect_status"></span>
-                                    </div>
-                                </div>
-                                <div class="row list">
-                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                        <span sh_lang="ACS_URL"></span>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                        <span class="tip_name hide" sh_lang="ACS_URL"></span>
-                                        <input type="text" class="form-control require isNONULL" id="acs_url">
-                                    </div>
-                                </div>
-                                <div class="row list">
-                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                        <span sh_lang="netmanager_Install_Location"></span>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                        <span class="tip_name hide" sh_lang="netmanager_Install_Location"></span>
-                                        <input type="text" class="form-control require isNONULL"  id="cpe_install_location">
-                                    </div>
-                                </div>
-                                <div class="row list">
-                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                        <span sh_lang="inform_interval"></span>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                        <input type="text" class="form-control require isNUM" name="_@60_65535" id="inform_interval">
-                                        <p sh_lang="default_value_300"></p>
-                                    </div>
-                                </div>
-                                <div class="row list">
+                                <div id="netmanager_details" hidden>
+                                    <div class="row list">
                                         <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                            <span sh_lang="ACS_auth"></span>
+                                            <span sh_lang="global_status"></span>
                                         </div>
                                         <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                            <input type="checkbox" class="checkbox" id="acs_check">
+                                            <span class="form-contro" id="connect_status"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row list">
+                                        <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                            <span sh_lang="ACS_URL"></span>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                            <span class="tip_name hide" sh_lang="ACS_URL"></span>
+                                            <input type="text" class="form-control require isNONULL" id="acs_url">
+                                        </div>
+                                    </div>
+                                    <div class="row list">
+                                        <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                            <span sh_lang="netmanager_Install_Location"></span>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                            <span class="tip_name hide" sh_lang="netmanager_Install_Location"></span>
+                                            <input type="text" class="form-control require isNONULL"  id="cpe_install_location">
+                                        </div>
+                                    </div>
+                                    <div class="row list">
+                                        <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                            <span sh_lang="inform_interval"></span>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                            <input type="text" class="form-control require isNUM" name="_@60_65535" id="inform_interval">
+                                            <p sh_lang="default_value_300"></p>
+                                        </div>
+                                    </div>
+                                    <div class="row list">
+                                            <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                                <span sh_lang="ACS_auth"></span>
+                                            </div>
+                                            <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                                <input type="checkbox" class="checkbox" id="acs_check">
+                                            <br>
+                                            </div>
+                                    </div>
+                                    <div class="row list" id="div_acs_username" hidden>
+                                        <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                            <span sh_lang="ACS_UserName"></span>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                            <span class="tip_name hide" sh_lang="ACS_UserName"></span>
+                                            <input type="text" class="form-control require isNULL" id="acs_username">
+                                        </div>
+                                    </div>
+                                    <div class="row list" id="div_acs_password" hidden>
+                                        <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                            <span sh_lang="ACS_PassWord"></span>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                            <input type="password" class="form-control require isNULL"  id="acs_password">
+                                        </div>
+                                        <div class="col-lg-17 col-sm-1 col-xs-1 form_right">
+                                            <i class="acs_password_show fa fa-eye-slash" style="margin-left:2%"></i>
+                                        </div>
+                                    </div>
+                                    <div class="row list">
+                                        <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                            <span sh_lang="CPE_auth"></span>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                            <input type="checkbox" class="checkbox" id="cpe_check">
                                         <br>
                                         </div>
-                                </div>
-                                <div class="row list" id="div_acs_username" hidden>
-                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                        <span sh_lang="ACS_UserName"></span>
                                     </div>
-                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                        <span class="tip_name hide" sh_lang="ACS_UserName"></span>
-                                        <input type="text" class="form-control require isNULL" id="acs_username">
+                                    <div class="row list" id="div_cpe_username" hidden>
+                                        <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                            <span sh_lang="CPE_UserName"></span>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                            <span class="tip_name hide" sh_lang="CPE_UserName"></span>
+                                            <input type="text" class="form-control require isNULL"  id="cpe_username">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row list" id="div_acs_password" hidden>
-                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                        <span sh_lang="ACS_PassWord"></span>
+                                    <div class="row list" id="div_cpe_password" hidden>
+                                        <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                            <span sh_lang="CPE_PassWord"></span>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
+                                            <input type="password" class="form-control require isNULL"  id="cpe_password">
+                                        </div>
+                                        <div class="col-lg-17 col-sm-1 col-xs-1 form_right">
+                                            <i class="cpe_password_show fa fa-eye-slash" style="margin-left:2%"></i>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                        <input type="password" class="form-control require isNULL"  id="acs_password">
-                                    </div>
-                                    <div class="col-lg-17 col-sm-1 col-xs-1 form_right">
-                                        <i class="acs_password_show fa fa-eye-slash" style="margin-left:2%"></i>
-                                    </div>
-                                </div>
-                                <div class="row list">
-                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                        <span sh_lang="CPE_auth"></span>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                        <input type="checkbox" class="checkbox" id="cpe_check">
-                                    <br>
-                                    </div>
-                                </div>
-                                <div class="row list" id="div_cpe_username" hidden>
-                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                        <span sh_lang="CPE_UserName"></span>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                        <span class="tip_name hide" sh_lang="CPE_UserName"></span>
-                                        <input type="text" class="form-control require isNULL"  id="cpe_username">
+                                    <div class="row list">
+                                        <form action="" id="upgrade" onsubmit="return false">
+                                            <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
+                                                <span sh_lang="import_certificate"></span>
+                                            </div>
+                                            <input type="file" sh_lang="upload_file_select" id="fileToUpload" name="fileToUpload" accept=".cer" style="display:inline-block;">
+                                            <button sh_lang="usb_upload_file_select" id="Upload"></button>
+                                        </form>
                                     </div>
                                 </div>
-								<div class="row list" id="div_cpe_password" hidden>
-                                    <div class="col-lg-5 col-sm-4 col-xs-4 form_left text-right">
-                                        <span sh_lang="CPE_PassWord"></span>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-4 col-xs-7 form_right">
-                                        <input type="password" class="form-control require isNULL"  id="cpe_password">
-                                    </div>
-                                    <div class="col-lg-17 col-sm-1 col-xs-1 form_right">
-                                        <i class="cpe_password_show fa fa-eye-slash" style="margin-left:2%"></i>
-                                    </div>
-                                </div>
-                                
-                                </div>
-                                <div class="row list">
+                                <div class="row list" style="margin-top: 4%;">
                                     <div
                                         class="col-md-4 col-xs-8  col-xs-offset-2">
                                         <div class="row text-center">

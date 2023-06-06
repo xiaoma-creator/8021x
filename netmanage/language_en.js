@@ -930,7 +930,7 @@ var upnp = "UPnP";
 var enabled_upnp = 'Enabled UPnP';
 
 /**samba */
-var usb_upload_file_select = 'Upload file  ';
+var usb_upload_file_select = 'Upload file';
 var usb_ip_error = 'Please select a file before uploading';
 var msg_error_samba_group_null = 'Samba group cannot be empty!';
 
@@ -1285,6 +1285,7 @@ var netmanager_url_error = 'Network management Platform address cannot be empty!
 var ACS_auth = 'ACS Authentication';
 var CPE_auth = 'CPE Authentication';
 var inform_interval = 'Inform Interval';
+var import_certificate = 'Import Certificate';
 
 /* host server */
 var host_server_header = 'Remote Server Settings';

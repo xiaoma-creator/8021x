@@ -45,7 +45,7 @@ $(document).ready(function () {
         }
     })
 
-    $(".acs_password_show").click(function () { 
+    $(".acs_password_show").click(function () {
         var pass_type = $("#acs_password").attr("type");
         if(pass_type == "password"){
             $("#acs_password").attr("type","text");
@@ -56,7 +56,7 @@ $(document).ready(function () {
         }
     });
 
-    $(".cpe_password_show").click(function () { 
+    $(".cpe_password_show").click(function () {
         var pass_type = $("#cpe_password").attr("type");
         if(pass_type == "password"){
             $("#cpe_password").attr("type","text");
@@ -147,7 +147,7 @@ $(document).ready(function () {
                     $("#connect_status").css("color", "green");
                 }else{
                     $("#connect_status").text(link_no);
-                    $("#connect_status").css("color", "crimson");                          
+                    $("#connect_status").css("color", "crimson");
                 }
                 $("#acs_url").val(data.acs_url);
                 $("#acs_username").val(data.acs_username);
@@ -156,7 +156,7 @@ $(document).ready(function () {
                 $("#cpe_password").val(data.cpe_password);
                 $("#cpe_install_location").val(data.cpe_install_location);
                 $("#inform_interval").val(data.inform_interval);
-						
+
         		if (data.netmanager_enable == 0){
             		$("#Switch0").removeClass("On");
             		$("#cwmp_enable_check").attr("checked", false);
@@ -166,7 +166,7 @@ $(document).ready(function () {
             		$("#cwmp_enable_check").attr("checked", true);
            		 	$("#netmanager_details").css('display', 'block');
         		}
-				
+
                 if (data.acs_auth == 0){
                     $("#Switch1").removeClass("On");
                     $("#acs_check").attr("checked", false);
@@ -198,4 +198,58 @@ $(document).ready(function () {
         clearall();
         window.location.reload();
     })
+
+    $("#Upload").click(function () {
+        var upload_file = $.trim($("#fileToUpload").val());
+        if (upload_file == "") {
+            if ($(".uploadfile").html() == undefined)
+                $("#fileToUpload").after('<span class="uploadfile" style="color:red;"></span>');
+            if ($(".uploadfile").html() == "")
+                $(".uploadfile").append(usb_ip_error);
+            setTimeout(function () {
+                $(".uploadfile").remove();
+            }, 3000);
+            return false;
+        }
+
+        shconfirm(usb_upload_file_select, 'confirm', {
+            onOk: function () {
+                var form = document.forms.namedItem("upgrade");
+                var formData = new FormData(form);
+                var cookies = getCookie("token");
+                var file = $("#fileToUpload").val();
+                var filename = getFileName(file);
+
+                formData.append("filename", filename);
+                formData.append("token", cookies);
+                console.log(formData);
+                $.ajax({
+                    url: "goform/upload_CA_file",
+                    type: "post",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                        if (data.ret == 1) {
+                            console.log("ok!");
+                        } else {
+                            // shconfirm(samba_error8, 'confirm', {
+                            //     onOK: function () {
+                            //         return;
+                            //     }
+                            // })
+                            // return false;
+                            console.log("error!");
+                        }
+                    }
+                });
+            }
+        });
+    });
+
 })
+
+function getFileName(o){
+    var pos=o.lastIndexOf("\\");
+    return o.substring(pos+1);
+}

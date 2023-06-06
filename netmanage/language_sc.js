@@ -921,7 +921,7 @@ var static_dhcp = "静态DHCP租约";
 var leasetime = "租约时间";
 
 /**samba */
-var usb_upload_file_select = '上传文件  ';
+var usb_upload_file_select = '上传文件';
 var usb_ip_error = '请先选择文件再上传';
 var usb_group_error = '工作组名称不能为空';
 var msg_error_samba_group_null = 'samba工作组不能为空';
@@ -1327,6 +1327,7 @@ var netmanager_url_error = '网管平台地址不能为空！';
 var ACS_auth = 'ACS 认证';
 var CPE_auth = 'CPE 认证';
 var inform_interval = '上报周期';
+var import_certificate = '导入证书';
 
 /* host server */
 var host_server_header = '远程服务器设置';
