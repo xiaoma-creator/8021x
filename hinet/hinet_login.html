@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>login</title>
+		<script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="/fonts/allfonts.css" />
+        <link rel="stylesheet" type="text/css" href="/css/login.css" />
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/core.js"></script>
+        <script type="text/javascript" src="/js/hmac.js"></script>
+        <script type="text/javascript" src="/js/sha256.js"></script>
+        <script type="text/javascript" src="/js/enc-base64.js"></script>
+	</head>
+	<body>
+        <div id="login-box" class="login_box" >
+            <div class="login-box-holder" style="margin-top: 150px;">
+                <!-- <div class="login-header" style="text-align: center;">
+                    <label style="font-size: x-large;">登录</label>
+                </div> -->
+                <div id="login-box-inner" class="login-box-inner">
+                    <div class="input-group">
+                        <label for="" class="input-group-addon">账号</label>
+                        <input id="username" type="text" required="required " class="form-control placeholder"/>
+                    </div>
+                    <div class="input-group">
+                        <label for="" class="input-group-addon">密码</label>
+                        <input id="password" type="password" required="required" class="form-control placeholder"/>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button id="login" class="btn btn-success col-xs-12">登录</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="error_tips_login" style="text-align: center;color:#ff0000"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="js/hinet_login.js"></script>
+	</body>
+</html>
+
