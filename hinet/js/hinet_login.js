@@ -17,6 +17,9 @@ $(document).ready(function () {
         var cookies = getCookie("token");
         var hash = CryptoJS.HmacSHA256(password, cookies);
         var hashInHex = CryptoJS.enc.Hex.stringify(hash);
+        var ip = window.location.hostname;
+
+        console.log(ip);
 
         $.post("/goform/hinet_login", {
             username: username,
@@ -24,7 +27,7 @@ $(document).ready(function () {
             token: cookies
         }, function(data) {
             if (data.ret == 1) {
-                window.location.reload();
+                window.location.href = "http://" + ip + "/hinet";
             } else if (data.ret == 2) {
                 alert("设备已登录");
             } else {

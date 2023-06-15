@@ -66,7 +66,7 @@ function get_telnet_setting() {
         type: "post",
         url: "/goform/hinet_get_telnet",
         data: {
-            tocken: cookies
+            token: cookies
         },
         dataType: "json",
         async: false,
@@ -90,7 +90,7 @@ function get_ssh_setting() {
         type: "post",
         url: "/goform/hinet_get_ssh",
         data: {
-            tocken: cookies
+            token: cookies
         },
         dataType: "json",
         async: false,
